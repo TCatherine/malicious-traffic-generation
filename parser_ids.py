@@ -67,7 +67,7 @@ def show_pca(data, label):
     plt.show()
 
 
-cic_ids2017_dataset = 'Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv'
+cic_ids2017_dataset = 'data/Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv'
 
 
 def processing(data, label):

