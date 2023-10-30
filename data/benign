@@ -1,0 +1,126 @@
+GET /?utm_source=main_stripe_big&uid=952360875 HTTP/1.1
+HOST                : mail.yandex.ru
+USER-AGENT          : curl/7.88.1
+ACCEPT              : */*
+PROXY-CONNECTION    : Keep-Alive
+
+GET /?utm_source=main_stripe_big&uid=952360875 HTTP/1.1
+HOST                : mail.yandex.ru
+USER-AGENT          : curl/7.88.1
+ACCEPT              : */*
+PROXY-CONNECTION    : Keep-Alive
+
+GET /questions/39012132/how-to-capture-only-http-with-tcpdump-with-linux HTTP/1.1
+HOST                : stackoverflow.com
+USER-AGENT          : curl/7.88.1
+ACCEPT              : */*
+PROXY-CONNECTION    : Keep-Alive
+
+GET /elastic/helm-charts/issues/495 HTTP/1.1
+HOST                : github.com
+USER-AGENT          : curl/7.88.1
+ACCEPT              : */*
+PROXY-CONNECTION    : Keep-Alive
+
+GET /watch?v=G6eZaX_lgbQ&list=PLP19RjSHH4aE9pB77yT1PbXzftGsXFiGl&ab_channel=TheArtofDevelopment HTTP/1.1
+HOST                : www.youtube.com
+USER-AGENT          : curl/7.88.1
+ACCEPT              : */*
+PROXY-CONNECTION    : Keep-Alive
+
+GET /blog/mitmproxy/ HTTP/1.1
+HOST                : earthly.dev
+USER-AGENT          : curl/7.88.1
+ACCEPT              : */*
+PROXY-CONNECTION    : Keep-Alive
+
+GET / HTTP/1.1
+HOST                : ya.ru
+USER-AGENT          : curl/7.88.1
+ACCEPT              : */*
+PROXY-CONNECTION    : Keep-Alive
+
+GET /wiki/Pcap HTTP/1.1
+HOST                : en.wikipedia.org
+USER-AGENT          : curl/7.88.1
+ACCEPT              : */*
+PROXY-CONNECTION    : Keep-Alive
+
+GET /pcaps/flows HTTP/1.1
+HOST                : apackets.com
+USER-AGENT          : curl/7.88.1
+ACCEPT              : */*
+PROXY-CONNECTION    : Keep-Alive
+
+GET /webhp?hl=ru&sa=X&ved=0ahUKEwidr57q2Z2CAxXutYsKHZ7CAM4QPAgJ HTTP/1.1
+HOST                : www.google.com
+USER-AGENT          : curl/7.88.1
+ACCEPT              : */*
+PROXY-CONNECTION    : Keep-Alive
+
+GET / HTTP/1.1
+HOST                : ya.ru
+USER-AGENT          : curl/7.88.1
+ACCEPT              : */*
+PROXY-CONNECTION    : Keep-Alive
+
+GET /d/rdS69rXmE4GR0w HTTP/1.1
+HOST                : disk.yandex.ru
+USER-AGENT          : curl/7.88.1
+ACCEPT              : */*
+PROXY-CONNECTION    : Keep-Alive
+
+GET /3/library/re.html HTTP/1.1
+HOST                : docs.python.org
+USER-AGENT          : curl/7.88.1
+ACCEPT              : */*
+PROXY-CONNECTION    : Keep-Alive
+
+GET /TCatherine/malicious-traffic-generation/blob/main/data/xss HTTP/1.1
+HOST                : github.com
+USER-AGENT          : curl/7.88.1
+ACCEPT              : */*
+PROXY-CONNECTION    : Keep-Alive
+
+GET /secure/RapidBoard.jspa?rapidView=2714&view=detail&selectedIssue=DD-1926 HTTP/1.1
+HOST                : jira.goods.ru
+USER-AGENT          : curl/7.88.1
+ACCEPT              : */*
+PROXY-CONNECTION    : Keep-Alive
+
+GET /feed/history HTTP/1.1
+HOST                : www.youtube.com
+USER-AGENT          : curl/7.88.1
+ACCEPT              : */*
+PROXY-CONNECTION    : Keep-Alive
+
+GET /@iviofficial HTTP/1.1
+HOST                : www.youtube.com
+USER-AGENT          : curl/7.88.1
+ACCEPT              : */*
+PROXY-CONNECTION    : Keep-Alive
+
+GET /ru/companies/slurm/articles/431122/ HTTP/1.1
+HOST                : habr.com
+USER-AGENT          : curl/7.88.1
+ACCEPT              : */*
+PROXY-CONNECTION    : Keep-Alive
+
+GET /catalog?tfc_charact:4618621[609099809]=Инженер&tfc_div=::: HTTP/1.1
+HOST                : slurm.io
+USER-AGENT          : curl/7.88.1
+ACCEPT              : */*
+PROXY-CONNECTION    : Keep-Alive
+
+GET /@ivi HTTP/1.1
+HOST                : www.youtube.com
+USER-AGENT          : curl/7.88.1
+ACCEPT              : */*
+PROXY-CONNECTION    : Keep-Alive
+
+GET /product/learn-grafana-7-0-a-beginner-s-guide-to-getting-well-versed-in-analytics-interactive-dashboards-214806938/ HTTP/1.1
+HOST                : www.ozon.ru
+USER-AGENT          : curl/7.88.1
+ACCEPT              : */*
+PROXY-CONNECTION    : Keep-Alive
+

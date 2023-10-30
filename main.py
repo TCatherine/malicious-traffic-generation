@@ -1,4 +1,4 @@
-from parser_pcap import parse
+from parser.parser_pcap import parse
 from learning import run
 import torch
 from model import Discriminator, Generator
