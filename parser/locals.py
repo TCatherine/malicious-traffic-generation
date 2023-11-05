@@ -4,8 +4,7 @@ dataset_folder = Path(__file__).parent.parent / 'data'
 
 xss = {
     'path': dataset_folder / 'xss',
-    're': r"GET ([^\n]*)\n"
-          r"\n"
+    're': r"GET ([^\n]*)[\n\s]*"
           r"HTTP\/([^\n]*)\n"
           r"Host: ([^\n]*)\n"
           r"User-Agent: ([^\n]*)\n"
