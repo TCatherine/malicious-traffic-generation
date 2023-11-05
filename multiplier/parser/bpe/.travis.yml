@@ -1,0 +1,11 @@
+language: python
+dist: xenial
+python:
+  - 3.6
+  - 3.7
+  - 3.8
+install:
+  - python setup.py install
+script:
+  - python -m mypy bpe --ignore-missing-imports
+  - python setup.py test
