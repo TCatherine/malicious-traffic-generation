@@ -17,6 +17,13 @@ class Tokenizer:
         res = self.__url_encoder.tokenize(sample)
         return res
 
-    def inverse(self, token: iter(list[int])):
+    def inverse(self, token: list[int]):
         res = self.__url_encoder.inverse_transform([token])
         return next(res)
+
+    @property
+    def tokens_dict(self):
+        return {}
+
+    def add_token(self):
+        pass

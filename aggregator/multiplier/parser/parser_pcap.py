@@ -5,8 +5,8 @@ from .locals import xss_url
 from .tokenize import Tokenizer
 import re
 
-
 STRING_SIZE = 150
+
 
 class Parser:
     def __init__(self,
@@ -37,5 +37,5 @@ def parse(
 
     dataset = [xss_tokenizer.transform(sample) for sample in xss_parser.data()]
     aligned_dataset = dataset.copy()
-    [data.extend([0 for _ in range(STRING_SIZE-len(data))]) for data in aligned_dataset]
+    [data.extend([0 for _ in range(STRING_SIZE - len(data))]) for data in aligned_dataset]
     return xss_tokenizer, aligned_dataset
