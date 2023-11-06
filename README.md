@@ -1,6 +1,13 @@
+# Malicious traffic generation
+## Architecture
+
+![architecture](/Users/tkacheva/Desktop/диплом/generator/doc/architecture.png)
+
 ## Environment
+
 ```
 python3.11 -m venv gen
+source gen/bin/activate
 ```
 
 ## Входные данные
@@ -22,3 +29,4 @@ git submodule init
 git submodule update
 pip install -r parser/bpe/requirements.txt
 ```
+

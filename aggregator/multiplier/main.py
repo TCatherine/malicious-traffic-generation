@@ -1,5 +1,5 @@
-from parser.parser_pcap import parse
-from learning import run
+from aggregator.multiplier.parser.parser_pcap import parse
+from aggregator.multiplier.learning import run
 import torch
 from model import Discriminator, Generator
 

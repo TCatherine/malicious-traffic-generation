@@ -2,7 +2,6 @@ import torch
 import torch.nn as nn
 
 lr = 0.5
-
 class Discriminator(nn.Module):
 	def __init__(self, feature_dim, lr, betas):
 		super(Discriminator, self).__init__()
