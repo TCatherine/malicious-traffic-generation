@@ -27,7 +27,7 @@ def compute_gradient_penalty(
     gradient_penalty = ((gradients.norm(2, dim=1) - 1) ** 2).mean()
     return gradient_penalty
 
-def run(
+def train(
         data,
         model,
         epochs,
@@ -40,7 +40,7 @@ def run(
 
     Tensor = torch.cuda.FloatTensor if is_cuda else torch.FloatTensor
 
-    # Load previous model 
+    # Load previous model
     # DB = 'generator'
     # model_path = os.path.join('./model', )
     # if LOAD_MODEL:

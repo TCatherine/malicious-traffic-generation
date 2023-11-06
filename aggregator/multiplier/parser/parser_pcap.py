@@ -9,23 +9,25 @@ from .bpe.bpe import Encoder
 class Parser:
     def __init__(self,
                  dictionary):
-        self.re = re.compile(dictionary['re'])
-        self.file = dictionary['path']
+        self.__re = re.compile(dictionary['re'])
+        self.__file = dictionary['path']
+        self.__url_encoder = Encoder(200, pct_bpe=0.88)
+        self.__groups = self.data()
 
     def read_file(self) -> str:
-        d = self.file.open().read()
+        d = self.__file.open().read()
         return d
 
-    def data(self) -> list[Any]:
+    def __fill_data(self):
         d = self.read_file()
-        groups = self.re.findall(d)
-        return groups
+        self.groups = self.__re.findall(d)
 
+    def data(self) -> list[Any]:
+        return self.groups
 
-def tokenizer(data):
-    encoder = Encoder(200, pct_bpe=0.88)
-    endpoints = [req[0] for req in data]
-    encoder.fit(endpoints)
+    def enable_bpe(self):
+        endpoints = [req[0] for req in self.groups]
+        self.__url_encoder.fit(endpoints)
 
 
 def parse(
@@ -36,7 +38,7 @@ def parse(
     xss_data = xss_parser.data()
     tokenizer(xss_data)
 
-    benign_parser = Parser(benign)
-    benign_data = benign_parser.data()
+    # benign_parser = Parser(benign)
+    # benign_data = benign_parser.data()
 
     a = 1
