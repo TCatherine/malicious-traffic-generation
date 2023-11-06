@@ -1,7 +1,7 @@
 # Malicious traffic generation
 ## Architecture
 
-![architecture](/Users/tkacheva/Desktop/диплом/generator/doc/architecture.png)
+![architecture](./doc/architecture.png)
 
 ## Environment
 
