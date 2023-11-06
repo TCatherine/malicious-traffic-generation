@@ -12,12 +12,13 @@ def is_cuda() -> bool:
 
 def main():
     cuda = is_cuda()
-    dataset = parse(
-        batch_size=BATCH_SIZE,
-        is_cuda=cuda)
+    tokenizer, dataset = parse(
+        # batch_size=BATCH_SIZE,
+        # is_cuda=cuda
+        )
 
     feature_dim = int(list(dataset.sampler.data_source[0][0].shape)[0])
-    det_step = DETERMINATOR_STEP * len(dataset)
+    det_step = DETERMINATOR_STEP
 
     D = Discriminator(
         feature_dim=feature_dim,

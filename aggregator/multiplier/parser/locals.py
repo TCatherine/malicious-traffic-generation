@@ -21,3 +21,8 @@ benign = {
           r"ACCEPT\s*: ([^\n]*)\n"
           r"PROXY-CONNECTION\s*: ([^\n]*)"
 }
+
+xss_url = {
+    'path': dataset_folder / 'xss_url',
+    're': r"([^\n]*)\n"
+}

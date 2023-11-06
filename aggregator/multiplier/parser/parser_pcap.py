@@ -1,18 +1,19 @@
 from typing import List, Any
 
 from torch.utils.data import DataLoader, TensorDataset
-from .locals import xss, benign
+from .locals import xss_url
+from .tokenize import Tokenizer
 import re
-from .bpe.bpe import Encoder
 
+
+STRING_SIZE = 150
 
 class Parser:
     def __init__(self,
                  dictionary):
         self.__re = re.compile(dictionary['re'])
         self.__file = dictionary['path']
-        self.__url_encoder = Encoder(200, pct_bpe=0.88)
-        self.__groups = self.data()
+        self.__groups = self.__fill_data()
 
     def read_file(self) -> str:
         d = self.__file.open().read()
@@ -20,25 +21,21 @@ class Parser:
 
     def __fill_data(self):
         d = self.read_file()
-        self.groups = self.__re.findall(d)
+        return self.__re.findall(d)
 
     def data(self) -> list[Any]:
-        return self.groups
-
-    def enable_bpe(self):
-        endpoints = [req[0] for req in self.groups]
-        self.__url_encoder.fit(endpoints)
+        return self.__groups
 
 
 def parse(
-        batch_size,
-        is_cuda=False
-) -> dict:
-    xss_parser = Parser(xss)
-    xss_data = xss_parser.data()
-    tokenizer(xss_data)
+        # batch_size,
+        # is_cuda=False
+) -> (Tokenizer, list):
+    xss_parser = Parser(xss_url)
+    xss_tokenizer = Tokenizer(xss_parser.data())
+    xss_tokenizer.fit()
 
-    # benign_parser = Parser(benign)
-    # benign_data = benign_parser.data()
-
-    a = 1
+    dataset = [xss_tokenizer.transform(sample) for sample in xss_parser.data()]
+    aligned_dataset = dataset.copy()
+    [data.extend([0 for _ in range(STRING_SIZE-len(data))]) for data in aligned_dataset]
+    return xss_tokenizer, aligned_dataset
