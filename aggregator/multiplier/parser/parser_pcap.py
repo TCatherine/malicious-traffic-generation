@@ -1,7 +1,10 @@
+from typing import List, Any
+
 from torch.utils.data import DataLoader, TensorDataset
 from .locals import xss, benign
 import re
 from .bpe.bpe import Encoder
+
 
 class Parser:
     def __init__(self,
@@ -13,16 +16,16 @@ class Parser:
         d = self.file.open().read()
         return d
 
-    def data(self) -> dict:
+    def data(self) -> list[Any]:
         d = self.read_file()
         groups = self.re.findall(d)
         return groups
+
 
 def tokenizer(data):
     encoder = Encoder(200, pct_bpe=0.88)
     endpoints = [req[0] for req in data]
     encoder.fit(endpoints)
-    a = 1
 
 
 def parse(
@@ -32,7 +35,6 @@ def parse(
     xss_parser = Parser(xss)
     xss_data = xss_parser.data()
     tokenizer(xss_data)
-
 
     benign_parser = Parser(benign)
     benign_data = benign_parser.data()
