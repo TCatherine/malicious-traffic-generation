@@ -1,8 +1,11 @@
 from typing import List, Any
 
 from torch.utils.data import DataLoader, TensorDataset
+from sklearn.preprocessing import OneHotEncoder
 from .locals import xss_url
 from .tokenize import Tokenizer
+import numpy as np
+
 import re
 
 STRING_SIZE = 150
@@ -27,6 +30,17 @@ class Parser:
         return self.__groups
 
 
+def one_hot_encoding(dataset: list[Any], tokens_dict: dict) -> list:
+    dictarr = np.asarray(list(tokens_dict.keys())).reshape(-1, 1)
+    enc = OneHotEncoder()
+    enc.fit(dictarr)
+    ohe_data = []
+    for line in dataset:
+        data = np.reshape(line, (-1, 1))
+        ohe_data.append(enc.transform(data).toarray().tolist())
+    return ohe_data
+
+
 def parse(
         # batch_size,
         # is_cuda=False
@@ -35,7 +49,7 @@ def parse(
     xss_tokenizer = Tokenizer(xss_parser.data())
     xss_tokenizer.fit()
 
-    dataset = [xss_tokenizer.transform(sample) for sample in xss_parser.data()]
-    aligned_dataset = dataset.copy()
-    [data.extend([0 for _ in range(STRING_SIZE - len(data))]) for data in aligned_dataset]
-    return xss_tokenizer, aligned_dataset
+    data = xss_tokenizer.transform(xss_parser.data(), 200)
+    dataset = one_hot_encoding(data, xss_tokenizer.inverse_tokens_dict)
+
+    return xss_tokenizer, dataset
