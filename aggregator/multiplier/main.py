@@ -2,12 +2,17 @@ from parser import parse
 from train import train
 from model import Discriminator, Generator
 from parameters import *
+from parser.models.transformer_gan.cgan_model import CGAN_Model
 
 import torch
 
 
 def is_cuda() -> bool:
     return torch.cuda.is_available()
+
+
+def train_cgan():
+    model = CGAN_Model(hidden_sz=1000)
 
 
 def main():
