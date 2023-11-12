@@ -18,6 +18,7 @@ def choose_color(l):
     if l == 'Web Attack � Brute Force':
         return 'green'
 
+
 def get_features_data_explain(data, label):
     pca = PCA(n_components=3)
 

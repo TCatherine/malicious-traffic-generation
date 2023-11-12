@@ -3,8 +3,11 @@ import torch.nn as nn
 
 
 class Generator(nn.Module):
-    def __init__(self, feature_dim, lr, betas):
+    def __init__(self, feature_dims, lr, betas):
         super(Generator, self).__init__()
+        self.l_shape = feature_dims[0]
+        self.dict_shape = feature_dims[1]
+        feature_dim = feature_dims[0] * feature_dims[1]
 
         def block(in_feat, out_feat, normalize=True):
             layers = [nn.Linear(in_feat, out_feat)]
@@ -19,7 +22,7 @@ class Generator(nn.Module):
             *block(256, 512),
             *block(512, 1024),
             nn.Linear(1024, feature_dim),
-            nn.Tanh()
+            nn.Sigmoid()
         )
 
         self.optimizer = torch.optim.Adam(
@@ -28,6 +31,6 @@ class Generator(nn.Module):
             betas=betas)
 
     def forward(self, x):
-        x = x.reshape([x.shape[0], -1])
-        x = self.model(x)
-        return x
+        data = x.reshape(x.shape[0], -1)
+        res = self.model(data)
+        return res.reshape(-1, self.l_shape, self.dict_shape)

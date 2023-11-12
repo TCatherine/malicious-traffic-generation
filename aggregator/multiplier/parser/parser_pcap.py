@@ -41,6 +41,18 @@ def one_hot_encoding(dataset: list[Any], tokens_dict: dict) -> list:
     return ohe_data
 
 
+def get_strings(dataset: list[Any], tokenizer: Tokenizer) -> list:
+    dictarr = np.asarray(list(tokenizer.inverse_tokens_dict.keys())).reshape(-1, 1)
+    enc = OneHotEncoder()
+    enc.fit(dictarr)
+    strings = []
+    for line in dataset:
+        res = enc.inverse_transform(line)
+        enc_data = [d[0] for d in res]
+        data = tokenizer.inverse(enc_data)
+        strings.append(data)
+    return strings
+
 def parse(
         # batch_size,
         # is_cuda=False
@@ -51,5 +63,5 @@ def parse(
 
     data = xss_tokenizer.transform(xss_parser.data(), 200)
     dataset = one_hot_encoding(data, xss_tokenizer.inverse_tokens_dict)
-
+    dataset = (np.asarray(dataset, dtype=np.int16), np.ones((len(dataset), 1), dtype=np.int16))
     return xss_tokenizer, dataset
