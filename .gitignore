@@ -1,3 +1,4 @@
 gen
 .idea
 __pycache__
+SEIM/suricata_logs
