@@ -35,15 +35,18 @@ class CGAN_Model:
         noise_labels = torch.nn.functional.one_hot(noise, num_classes=dict) * 1.0
 
         return noise_labels
+
     def generate(self, data_shape):
         x = self.generate_random_data_input(data_shape[0], data_shape[1], data_shape[2])
         return self.generator(x)
 
     def train_generator_step(self, data_shape):
+        self.generator.optimizer.zero_grad()
+
         g_output = self.generate(data_shape)
         y = Variable(torch.zeros(data_shape[0], 1).to(self.device))
         d_output = self.discriminator(g_output)
-        g_loss = self.criterion(d_output, y)
+        g_loss = 1 - self.criterion(d_output, y)
 
         g_loss.backward()
         self.generator.optimizer.step()
@@ -70,6 +73,8 @@ class CGAN_Model:
         return gradient_penalty
 
     def train_discrim_step(self, x_real, y_real):
+        self.discriminator.optimizer.zero_grad()
+
         d_real_score = self.discriminator(x_real)
         d_real_loss = self.criterion(d_real_score, y_real)
 
@@ -82,7 +87,7 @@ class CGAN_Model:
 
         # gradient backprop & optimize ONLY D's parameters
         gp = self.compute_gradient_penalty(x_real, x_fake)
-        d_loss = - d_real_loss + d_fake_loss
+        d_loss = d_real_loss + d_fake_loss
         d_loss.backward()
         self.discriminator.optimizer.step()
 
@@ -99,15 +104,15 @@ class CGAN_Model:
             d_loss = self.train_discrim_step(x_train, y_train)
             g_loss = self.train_generator_step(data_shape=x_train.shape)
 
-        #     # test
-        #     with torch.no_grad():
-        #         rec, mu, log_var = self.net(x_test, y_test, use_noise=False)
-        #         test_l, detailed = self.loss(x_test, rec, mu, log_var)
-        #
+            #     # test
+            #     with torch.no_grad():
+            #         rec, mu, log_var = self.net(x_test, y_test, use_noise=False)
+            #         test_l, detailed = self.loss(x_test, rec, mu, log_var)
+            #
             # save losses
             self.loss_track.append({'d': float(d_loss), 'g': float(g_loss)})
         #
-        # self.l = pd.DataFrame(self.loss_track)
+        self.l = pd.DataFrame(self.loss_track)
 
     # def predict(self, x, y):
     #     x = torch.tensor(x, dtype=torch.float32, device=self.device)
@@ -158,9 +163,8 @@ class CGAN_Model:
         torch.save(self.generator.state_dict(), self.gen_weights_path)
         torch.save(self.discriminator.state_dict(), self.disc_weights_path)
 
-
     def load_weights(self):
         self.generator.load_state_dict(torch.load(self.gen_weights_path,
-                                            map_location=self.device))
+                                                  map_location=self.device))
         self.discriminator.load_state_dict(torch.load(self.disc_weights_path,
-                                            map_location=self.device))
+                                                      map_location=self.device))

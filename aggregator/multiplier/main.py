@@ -13,19 +13,20 @@ def is_cuda() -> bool:
 def train_cgan(dataset):
     x, y = dataset
     model = CGAN_Model(hidden_sz=x.shape[1:])
-    # model.fit(x, y)
-    # model.plot_loss()
+    model.fit(x, y)
+    model.plot_loss()
     return model
+
 
 def main():
     cuda = is_cuda()
     tokenizer, dataset = parse(
         # batch_size=BATCH_SIZE,
         # is_cuda=cuda
-        )
+    )
     model = train_cgan(dataset)
     data_shape = dataset[0].shape
-    data_shape = (2, data_shape[1], data_shape[2])
+    data_shape = (10, data_shape[1], data_shape[2])
     res = model.generate(data_shape).tolist()
     url = get_strings(res, tokenizer)
     print(url)
