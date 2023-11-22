@@ -1,7 +1,7 @@
 from parser import parse, get_strings
 from train import train
 from parameters import *
-from aggregator.multiplier.models.transformer_gan.cgan_model import CGAN_Model
+from aggregator.multiplier.models.basic_gan.cgan_model import CGAN_Model
 
 import torch
 
