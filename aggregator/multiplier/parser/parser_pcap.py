@@ -1,14 +1,9 @@
-from typing import List, Any
-
-from torch.utils.data import DataLoader, TensorDataset
+from typing import Any
 from sklearn.preprocessing import OneHotEncoder
 from .locals import xss_url
 from .tokenize import Tokenizer
 import numpy as np
-
 import re
-
-STRING_SIZE = 150
 
 
 class Parser:
@@ -31,7 +26,7 @@ class Parser:
 
 
 def one_hot_encoding(dataset: list[Any], tokens_dict: dict) -> list:
-    dictarr = np.asarray(list(tokens_dict.keys())).reshape(-1, 1)
+    dictarr = np.asarray([tokens_dict[d] for d in tokens_dict]).reshape(-1, 1)
     enc = OneHotEncoder()
     enc.fit(dictarr)
     ohe_data = []
@@ -42,26 +37,28 @@ def one_hot_encoding(dataset: list[Any], tokens_dict: dict) -> list:
 
 
 def get_strings(dataset: list[Any], tokenizer: Tokenizer) -> list:
-    dictarr = np.asarray(list(tokenizer.inverse_tokens_dict.keys())).reshape(-1, 1)
+    dictarr = np.asarray([tokenizer.vocab_stoi[d] for d in tokenizer.vocab_stoi]).reshape(-1, 1)
     enc = OneHotEncoder()
     enc.fit(dictarr)
     strings = []
     for line in dataset:
         res = enc.inverse_transform(line)
         enc_data = [d[0] for d in res]
-        data = tokenizer.inverse(enc_data)
+        data = tokenizer.decode(enc_data)
         strings.append(data)
     return strings
 
-def parse(
-        # batch_size,
-        # is_cuda=False
-) -> (Tokenizer, list):
-    xss_parser = Parser(xss_url)
-    xss_tokenizer = Tokenizer(xss_parser.data())
-    xss_tokenizer.fit()
 
-    data = xss_tokenizer.transform(xss_parser.data(), 200)
-    dataset = one_hot_encoding(data, xss_tokenizer.inverse_tokens_dict)
+def parse(bpe_params: dict) -> (Tokenizer, list):
+    xss_parser = Parser(xss_url)
+
+    if not bpe_params['dict_path'].is_file():
+        data = ' '.join(xss_parser.data())
+        Tokenizer.from_corpus(data, learn_bpe_args=bpe_params.copy())
+
+    bpet = Tokenizer.load(bpe_params['dict_path'], fixed_length=bpe_params['fixed_length'])
+    tokens = [bpet.encode(data) for data in xss_parser.data()]
+
+    dataset = one_hot_encoding(tokens, bpet.vocab_stoi)
     dataset = (np.asarray(dataset, dtype=np.int16), np.ones((len(dataset), 1), dtype=np.int16))
-    return xss_tokenizer, dataset
+    return bpet, dataset

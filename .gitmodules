@@ -1,3 +1,0 @@
-[submodule "parser/bpe"]
-	path = aggregator/multiplier/parser/bpe
-	url = https://github.com/soaxelbrooke/python-bpe
