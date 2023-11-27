@@ -1,6 +1,6 @@
 from pathlib import Path
 
-dataset_folder = Path(__file__).parent.parent.parent / 'data'
+dataset_folder = Path(__file__).parent.parent / 'data'
 
 xss = {
     'path': dataset_folder / 'xss',
@@ -24,5 +24,10 @@ benign = {
 
 xss_url = {
     'path': dataset_folder / 'xss_url',
+    're': r"([^\n]*)\n"
+}
+
+xss_url_suricata = {
+    'path': dataset_folder / 'xss_url_suricata',
     're': r"([^\n]*)\n"
 }

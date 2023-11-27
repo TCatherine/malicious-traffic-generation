@@ -1,0 +1,8 @@
+FROM jasonish/suricata:4.1.10-arm64v8 as suricata
+# FROM jasonish/suricata:4.1.10
+RUN apk add nginx
+RUN mkdir -p /run/nginx
+
+COPY entrypoint.sh /entrypoint.sh
+
+ENTRYPOINT ["/bin/sh", "entrypoint.sh"]

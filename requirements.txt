@@ -1,8 +1,9 @@
-setuptools~=68.2.2
-pandas~=2.1.1
-torch~=2.1.0
-numpy~=1.26.1
-matplotlib~=3.8.0
-scikit-learn~=1.3.2
-requests~=2.31.0
+setuptools
+pandas
+torch
+numpy
+matplotlib
+scikit-learn
+requests
 plotly
+nltk

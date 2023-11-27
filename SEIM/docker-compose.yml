@@ -1,104 +1,116 @@
 version: '3'
 
 services:
-  nginx:
-    image: nginx:latest
-    ports:
-      - "80:80"
-    restart: always
   suricata:
-#    image: jasonish/suricata:4.1.10
-    image: jasonish/suricata:4.1.10-arm64v8
+    image: suricata
+    build:
+      context: .
+      dockerfile: Dockerfile.suricata
     container_name: suricata
     volumes:
       - "./suricata_logs:/var/log/suricata"
       - "./suitable.rules:/var/lib/suricata/rules/suricata.rules"
       - "./suricata.yml:/etc/suricata/suricata.yaml"
-    ports:
-      - 80:80
     cap_add:
       - NET_ADMIN
       - NET_RAW
       - SYS_ADMIN
       - SYS_NICE
+    ports:
+      - "80:80"
     command:
 #      - "ip link show "
       - "-c /etc/suricata/suricata.yaml -i eth0 -k none"
-#    network_mode: "host"
-  es:
-    image: docker.io/library/elasticsearch:7.17.7
-    container_name: es
-    volumes:
-     - "elasticsearchdata:/usr/share/elasticsearch/data"
-    ports:
-      - 9200:9200
-    environment:
-      - node.name=es01
-      - cluster.name=suricata
-      - discovery.type=single-node
-      - bootstrap.memory_lock=true
-      - xpack.security.enabled=true
-      - ELASTIC_PASSWORD=elastic
-      - KIBANA_PASSWORD=kibana
-      - cluster.routing.allocation.disk.threshold_enabled=false
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-    ulimits:
-      memlock:
-        soft: -1
-        hard: -1
-    healthcheck:
-      test:
-        [
-          "CMD-SHELL",
-          "curl http://localhost:9200 | grep -q 'missing authentication credentials'",
-        ]
-      interval: 10s
-      timeout: 10s
-      retries: 120
-  kibana:
-    depends_on:
-      es:
-        condition: service_healthy
-    image: docker.io/library/kibana:7.17.7
-    container_name: kibana
-    volumes:
-      - "kibanadata:/usr/share/kibana/data"
-    ports:
-      - 5601:5601
-    environment:
-      - SERVERNAME=suricata
-      - ELASTICSEARCH_HOSTS=http://es:9200
-      - ELASTICSEARCH_USERNAME=elastic
-      - ELASTICSEARCH_PASSWORD=elastic
-    healthcheck:
-      test:
-        [
-          "CMD-SHELL",
-          "curl -s -I http://localhost:5601 | grep -q 'HTTP/1.1 302 Found'",
-        ]
-      interval: 10s
-      timeout: 10s
-      retries: 120
-  filebeat:
-    depends_on:
-      es:
-        condition: service_healthy
-    image: elastic/filebeat:7.17.7
-    container_name: filebeat
-    user: root
-    volumes:
-      - "filebeatdata:/usr/share/filebeat/data"
-      - "./filebeat_suricata.yml:/usr/share/filebeat/modules.d/suricata.yml:ro"
-      - "./filebeat.yml:/usr/share/filebeat/filebeat.yml:ro"
-      - "/var/lib/docker/containers:/var/lib/docker/containers:ro"
-      - "/var/run/docker.sock:/var/run/docker.sock:ro"
-      - "./suricata_logs:/var/log/suricata:ro"
-
-volumes:
-  filebeatdata:
-  kibanadata:
-  elasticsearchdata:
+    networks:
+      - suricata
+  generator:
+    image: generator
+    container_name: generator
+    build: ..
+#    depends_on:
+#      suricata:
+#        condition: service_started
+    entrypoint: "python3 main.py"
+    command:
+    - "--url"
+    - "http://suricata:80/"
+    - "--number"
+    - "100"
+    networks:
+      - suricata
+#  es:
+#    image: docker.io/library/elasticsearch:7.17.7
+#    container_name: es
+#    volumes:
+#     - "elasticsearchdata:/usr/share/elasticsearch/data"
+#    ports:
+#      - 9200:9200
+#    environment:
+#      - node.name=es01
+#      - cluster.name=suricata
+#      - discovery.type=single-node
+#      - bootstrap.memory_lock=true
+#      - xpack.security.enabled=true
+#      - ELASTIC_PASSWORD=elastic
+#      - KIBANA_PASSWORD=kibana
+#      - cluster.routing.allocation.disk.threshold_enabled=false
+#      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+#    ulimits:
+#      memlock:
+#        soft: -1
+#        hard: -1
+#    healthcheck:
+#      test:
+#        [
+#          "CMD-SHELL",
+#          "curl http://localhost:9200 | grep -q 'missing authentication credentials'",
+#        ]
+#      interval: 10s
+#      timeout: 10s
+#      retries: 120
+#  kibana:
+#    depends_on:
+#      es:
+#        condition: service_healthy
+#    image: docker.io/library/kibana:7.17.7
+#    container_name: kibana
+#    volumes:
+#      - "kibanadata:/usr/share/kibana/data"
+#    ports:
+#      - 5601:5601
+#    environment:
+#      - SERVERNAME=suricata
+#      - ELASTICSEARCH_HOSTS=http://es:9200
+#      - ELASTICSEARCH_USERNAME=elastic
+#      - ELASTICSEARCH_PASSWORD=elastic
+#    healthcheck:
+#      test:
+#        [
+#          "CMD-SHELL",
+#          "curl -s -I http://localhost:5601 | grep -q 'HTTP/1.1 302 Found'",
+#        ]
+#      interval: 10s
+#      timeout: 10s
+#      retries: 120
+#  filebeat:
+#    depends_on:
+#      es:
+#        condition: service_healthy
+#    image: elastic/filebeat:7.17.7
+#    container_name: filebeat
+#    user: root
+#    volumes:
+#      - "filebeatdata:/usr/share/filebeat/data"
+#      - "./filebeat_suricata.yml:/usr/share/filebeat/modules.d/suricata.yml:ro"
+#      - "./filebeat.yml:/usr/share/filebeat/filebeat.yml:ro"
+#      - "/var/lib/docker/containers:/var/lib/docker/containers:ro"
+#      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+#      - "./suricata_logs:/var/log/suricata:ro"
+#
+#volumes:
+#  filebeatdata:
+#  kibanadata:
+#  elasticsearchdata:
 
 networks:
-    ipvlan70:
-      driver: ipvlan
+  suricata:

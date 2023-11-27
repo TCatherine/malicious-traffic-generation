@@ -1,9 +1,11 @@
 from typing import Any
 from sklearn.preprocessing import OneHotEncoder
-from .locals import xss_url
+from .locals import *
 from .tokenize import Tokenizer
+
 import numpy as np
 import re
+import random
 
 
 class Parser:
@@ -48,6 +50,22 @@ def get_strings(dataset: list[Any], tokenizer: Tokenizer) -> list:
         strings.append(data)
     return strings
 
+def run(
+        types: list[str],
+        number: int,
+):
+    data_types = {
+        'xss': xss_url_suricata,
+        'benign': benign
+    }
+    type_number = number // len(types)
+
+    samples = []
+    for type in types:
+        parser = Parser(data_types[type])
+        data = parser.data()
+        samples.extend(random.choices(data, k=type_number))
+    return samples
 
 def parse(bpe_params: dict) -> (Tokenizer, list):
     xss_parser = Parser(xss_url)

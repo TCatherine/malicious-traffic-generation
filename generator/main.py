@@ -1,29 +1,36 @@
 import requests
+import random
+import logging
+import time
+from .url_params import *
 
-URL = 'http://127.0.0.1'
+logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
 
-def send_request(parameters):
-    endpoint = URL + parameters[1]
-    method = parameters[0]
+def send_request(url: str, endpoint: str):
+    endpoint = url + endpoint
+    method = 'GET'
     headers = {
-        'User-Agent': parameters[4],
-        'Accept-Encoding': parameters[5],
-        'Accept': parameters[6],
-        'Connection': parameters[7]
+        'User-Agent': random.choice(user_agent_list),
+        'Accept-Encoding': random.choice(accept_encoding_list),
+        'Accept': random.choice(accept_list),
+        'Connection': random.choice(connection_list),
     }
     try:
         if method == 'GET':
+            logging.info(f"send: {endpoint}")
             requests.get(url=endpoint, headers=headers)
         else:
+            logging.info(f"send: {endpoint}")
             requests.post(url=endpoint, headers=headers)
     except:
-        print("An exception occurred")
+        logging.debug(f"An exception occurred")
 
 
-def run(samples: list):
+def run(url: str, samples: list):
     for sample in samples:
-        send_request(sample)
+        send_request(url, sample)
+        time.sleep(1)
 
 
 def main():

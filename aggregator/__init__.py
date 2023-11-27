@@ -1,8 +1,10 @@
 import sys
 from pathlib import Path
 
-PATHS = [item for item in Path(__file__).parent.iterdir() if item.is_dir()]
-for path in enumerate(PATHS):
-    sys.path.append(str(path))
+PATH = Path(__file__).parent
+sys.path.append(str(PATH))
+sys.path.append(str(PATH / 'parser'))
+sys.path.append(str(PATH / 'models'))
+sys.path.append(str(PATH / 'models/basic_gan'))
 
 from .main import run
