@@ -30,7 +30,6 @@ def train_cgan(dataset):
     model = CGAN_Model(hidden_sz=x.shape[1:])
     model.fit(x, y)
     model.plot_loss()
-    model.save_weights()
     return model
 
 
