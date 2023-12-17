@@ -2,3 +2,5 @@ gen
 .idea
 __pycache__
 SEIM/suricata_logs
+SEIM/generator_logs
+out/
