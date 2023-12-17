@@ -88,6 +88,7 @@ def parse(bpe_params: dict,
     bpet = Tokenizer.load(bpe_params['dict_path'], fixed_length=bpe_params['fixed_length'])
 
     tokens = [bpet.encode(d) for d in xss_parser.data()]
+    tokens = tokens[:700]
     tokens_dl = DataLoader(
         dataset=TensorDataset(torch.as_tensor(tokens)),
         shuffle=False,
@@ -102,7 +103,7 @@ def parse(bpe_params: dict,
 
     data_target = torch.ones(len(tokens), 1)
     dataset = DataLoader(
-        dataset=TensorDataset(torch.LongTensor(tokens), data_target),
+        dataset=TensorDataset(ohe, data_target),
         shuffle=True,
         batch_size=batch_size,
         drop_last=True)

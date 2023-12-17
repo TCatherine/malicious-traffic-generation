@@ -7,8 +7,10 @@ from models.basic_vae.vae import VAE_Model
 
 import torch
 
+
 def is_cuda() -> bool:
     return torch.cuda.is_available()
+
 
 def run(
         types: list[str],
@@ -36,11 +38,11 @@ def train_cgan(dataset):
 
 
 def train_vae(dataset):
-    x, y = dataset
+    dataloader = dataset
 
     hidden_size = 64
     model = VAE_Model(hidden_sz=hidden_size)
-    model.fit(x, y)
+    model.fit(dataloader)
     model.plot_loss()
     model.save_weights()
     return model

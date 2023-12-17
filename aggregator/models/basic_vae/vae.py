@@ -25,21 +25,17 @@ class VAE_Model:
 
         self.weights_path = f'{self.file_path}/weights/{self.net.__class__.__name__}_{hidden_sz}'
 
-    def fit(self, x_train, x_test):
-        x_train = torch.tensor(x_train, dtype=torch.float32, device=self.device)
-        x_test = torch.tensor(x_test, dtype=torch.float32, device=self.device)
+    def fit(self, train_dataloader):
+        # x_train = torch.tensor(x_train, dtype=torch.float32, device=self.device)
+        # x_test = torch.tensor(x_test, dtype=torch.float32, device=self.device)
 
-        # x_train = torch.transpose(x_train, 0, 1)
-        # x_test = torch.transpose(x_test, 0, 1)
-
-        batch_size = 48
+        # batch_size = 48
         for epoch in tqdm(range(1500)):
 
             # train
-            for i in range(0, len(x_train), batch_size):
-                train_batch = x_train[i:i + batch_size]
-
-
+            for train_batch, labels in train_dataloader:
+                # train_batch = x_train[i:i + batch_size]
+                train_batch = train_batch.to(self.device)
 
                 self.optimizer.zero_grad()
                 rec, mu, log_var = self.net(train_batch, use_noise=True)

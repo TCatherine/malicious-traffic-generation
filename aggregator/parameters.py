@@ -3,7 +3,7 @@ from pathlib import Path
 dict_path = Path(__file__).parent / 'parser' / 'penguin_of_doom.vocab'
 
 EPOCHS = 10000
-BATCH_SIZE = 512
+BATCH_SIZE = 48
 LEARNING_RATE = 0.00002
 BETAS = (0.5, 0.999)
 DETERMINATOR_STEP = 100

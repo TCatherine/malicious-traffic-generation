@@ -50,7 +50,6 @@ class BottleneckVariational(torch.nn.Module):
 
 class Decoder(torch.nn.Module):
 
-    max_len = 500
     def __init__(self, hidden_sz):
         super().__init__()
         self.deconv1 = nn.ConvTranspose2d(128, 64, kernel_size=3, stride=2, padding=1, output_padding=1)
