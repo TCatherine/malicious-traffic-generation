@@ -9,19 +9,19 @@ from .tokenize import Tokenizer
 class DatasetURI(torch.utils.data.Dataset):
     def __init__(self,
                  data: list,
-                 tokenize: Tokenizer
+                 tokenizer: Tokenizer
                  ):
-        self.tokenize = tokenize
+        self.tokenizer = tokenizer
         self.data = data
 
     def __len__(self):
         return len(self.data)
 
     def __getitem__(self, idx) -> List[int]:
-        return self.tokenize.encode(self.data[idx])
+        return self.tokenizer.encode(self.data[idx])
 
-def collate_fn(data: List[List[int]], num_classes: int) -> torch.Torch:
+
+def collate_fn(data: List[List[int]]) -> torch.Tensor:
     res = torch.as_tensor(data)
-    res = torch.nn.functional.one_hot(res, num_classes=num_classes)
+    # res = torch.nn.functional.one_hot(res, num_classes=num_classes)
     return res
-

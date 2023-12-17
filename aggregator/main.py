@@ -1,6 +1,6 @@
 from data import run as ref_run
 
-from data import parse, get_strings, load_dict
+from data import parse, get_strings, load_dict, DatasetURI, load_bpe
 from parameters import *
 from models.basic_gan.cgan_model import CGAN_Model
 from models.basic_vae.vae import VAE_Model
@@ -37,14 +37,15 @@ def train_cgan(dataset):
     return model
 
 
-def train_vae(dataset):
+def train_vae(data, tokenizer):
     # train_data, test_data = split(data)
+    # train, test = train_test_split(data)
 
-    dataloader = dataset
+    dataset = DatasetURI(data, tokenizer)
 
     hidden_size = 64
-    model = VAE_Model(hidden_sz=hidden_size)
-    model.fit(dataloader)
+    model = VAE_Model(hidden_sz=hidden_size, dict_size=tokenizer.dict_size)
+    model.fit(dataset)
     model.plot_loss()
     model.save_weights()
     return model
@@ -52,14 +53,16 @@ def train_vae(dataset):
 
 def main():
     # Example
-    tokenizer, dataset = parse(bpe_params=BPE, batch_size=BATCH_SIZE)
-    model = train_vae(dataset)
+    data = parse()
+    tokenizer = load_bpe(BPE)
+    model = train_vae(data, tokenizer)
 
     data_shape = dataset[0].shape
     data_shape = (1, data_shape[1], data_shape[2])
     res = model.generate(data_shape).tolist()
     url = get_strings(res, tokenizer)
     print(run(['xss'], 10, False, False))
+
 
 if __name__ == "__main__":
     main()

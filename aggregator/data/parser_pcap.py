@@ -30,6 +30,7 @@ class Parser:
     def data(self) -> list[Any]:
         return self.__groups
 
+
 def get_strings(dataset: list[Any], tokenizer: Tokenizer) -> list:
     dictarr = np.asarray([tokenizer.vocab_stoi[d] for d in tokenizer.vocab_stoi]).reshape(-1, 1)
     enc = OneHotEncoder()
@@ -48,7 +49,7 @@ def load_bpe(bpe_params: dict, data: list = None) -> Tokenizer:
         data = ' '.join(data)
         Tokenizer.from_corpus(data, learn_bpe_args=bpe_params.copy())
 
-    bpet = Tokenizer.load(bpe_params['dict_path'])
+    bpet = Tokenizer.load(bpe_params['dict_path'], fixed_length=bpe_params['fixed_length'])
     return bpet
 
 
@@ -75,11 +76,12 @@ def load_dict(bpe_params: dict) -> Tokenizer:
     return bpet
 
 
-def parse(bpe_params: dict,
-          batch_size: int) -> (Tokenizer, DataLoader):
+def parse() -> (Tokenizer, DataLoader):
     xss_parser = Parser(xss_url)
-    bpet = load_bpe(bpe_params)
-    ds = DatasetURI(xss_parser.data(), bpet)
+    # bpet = load_bpe(bpe_params)
+    return xss_parser.data()
+
+    # ds = DatasetURI(xss_parser.data(), bpet)
     #
     # tokens_dl = DataLoader(
     #     dataset=TensorDataset(torch.as_tensor(tokens)),

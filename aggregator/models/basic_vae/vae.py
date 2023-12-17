@@ -4,9 +4,10 @@ import pandas as pd
 import torch
 from plotly import express as px
 from tqdm import tqdm
-
+from torch.utils.data import DataLoader
 from .nets import VariationalAutoEncoder, LossVAE
-
+from data import collate_fn, DatasetURI
+import numpy as np
 
 class VAE_Model:
     # device = torch.device('cpu')
@@ -14,8 +15,8 @@ class VAE_Model:
 
     file_path = os.path.dirname(__file__)
 
-    def __init__(self, hidden_sz):
-        self.net = VariationalAutoEncoder(hidden_sz)
+    def __init__(self, hidden_sz, dict_size):
+        self.net = VariationalAutoEncoder(hidden_sz, dict_size, self.device)
         self.net = self.net.to(self.device)
 
         self.optimizer = torch.optim.Adam(self.net.parameters(), lr=0.001)
@@ -25,23 +26,33 @@ class VAE_Model:
 
         self.weights_path = f'{self.file_path}/weights/{self.net.__class__.__name__}_{hidden_sz}'
 
-    def fit(self, train_dataloader):
+    def fit(self, train_dataset: DatasetURI):
         # x_train = torch.tensor(x_train, dtype=torch.float32, device=self.device)
         # x_test = torch.tensor(x_test, dtype=torch.float32, device=self.device)
 
-        # batch_size = 48
-        for epoch in tqdm(range(1500)):
-
+        batch_size = 48
+        train_dataloader = DataLoader(dataset=train_dataset,
+                                      batch_size=batch_size,
+                                      collate_fn=collate_fn,
+                                      drop_last=True
+                                      )
+        for epoch in tqdm(range(3)):
+            self.loss_track.append([])
             # train
-            for train_batch, labels in train_dataloader:
-                # train_batch = x_train[i:i + batch_size]
+            for train_batch in train_dataloader:
                 train_batch = train_batch.to(self.device)
 
                 self.optimizer.zero_grad()
                 rec, mu, log_var = self.net(train_batch, use_noise=True)
-                train_l, detailed = self.loss(train_batch, rec, mu, log_var)
-                train_l.backward()
+                target = torch.nn.functional.one_hot(train_batch,
+                                                     num_classes=train_dataset.tokenizer.dict_size)
+                target = torch.tensor(target, dtype=torch.float32)
+                rec_loss, kl_loss = self.loss(target, rec, mu, log_var)
+                total_loss = rec_loss+ kl_loss
+                total_loss.backward()
                 self.optimizer.step()
+
+                self.loss_track[-1].append(float(rec_loss))
 
             # # test
             # with torch.no_grad():
@@ -49,8 +60,9 @@ class VAE_Model:
             #     test_l, detailed = self.loss(x_test, rec, mu, log_var)
 
             # save losses
-            self.loss_track.append({'train': float(train_l), 'test': float(test_l)})
+            # self.loss_track.append({'train': float(train_l), 'test': float(test_l)})
 
+        l = np.array(self.loss_track).mean(axis=1)
         self.l = pd.DataFrame(self.loss_track)
 
     def predict(self, x):
