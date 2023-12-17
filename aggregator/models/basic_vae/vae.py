@@ -29,17 +29,28 @@ class VAE_Model:
         x_train = torch.tensor(x_train, dtype=torch.float32, device=self.device)
         x_test = torch.tensor(x_test, dtype=torch.float32, device=self.device)
 
-        for epoch in tqdm(range(1500)):
-            self.optimizer.zero_grad()
-            rec, mu, log_var = self.net(x_train, use_noise=True)
-            train_l, detailed = self.loss(x_train, rec, mu, log_var)
-            train_l.backward()
-            self.optimizer.step()
+        # x_train = torch.transpose(x_train, 0, 1)
+        # x_test = torch.transpose(x_test, 0, 1)
 
-            # test
-            with torch.no_grad():
-                rec, mu, log_var = self.net(x_test, use_noise=False)
-                test_l, detailed = self.loss(x_test, rec, mu, log_var)
+        batch_size = 48
+        for epoch in tqdm(range(1500)):
+
+            # train
+            for i in range(0, len(x_train), batch_size):
+                train_batch = x_train[i:i + batch_size]
+
+
+
+                self.optimizer.zero_grad()
+                rec, mu, log_var = self.net(train_batch, use_noise=True)
+                train_l, detailed = self.loss(train_batch, rec, mu, log_var)
+                train_l.backward()
+                self.optimizer.step()
+
+            # # test
+            # with torch.no_grad():
+            #     rec, mu, log_var = self.net(x_test, use_noise=False)
+            #     test_l, detailed = self.loss(x_test, rec, mu, log_var)
 
             # save losses
             self.loss_track.append({'train': float(train_l), 'test': float(test_l)})

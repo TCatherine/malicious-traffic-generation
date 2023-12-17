@@ -3,7 +3,7 @@ from parser import run as ref_run
 from parser import parse, get_strings, load_dict
 from parameters import *
 from models.basic_gan.cgan_model import CGAN_Model
-from models.basic_vae_gan.vae import VAE_Model
+from models.basic_vae.vae import VAE_Model
 
 import torch
 
@@ -37,7 +37,9 @@ def train_cgan(dataset):
 
 def train_vae(dataset):
     x, y = dataset
-    model = VAE_Model(hidden_sz=x.shape[1:])
+
+    hidden_size = 64
+    model = VAE_Model(hidden_sz=hidden_size)
     model.fit(x, y)
     model.plot_loss()
     model.save_weights()

@@ -7,36 +7,35 @@ import os
 
 
 class Encoder(torch.nn.Module):
+    hidden_sz = 64
+    layers_num = 5
+
     def __init__(self):
         super().__init__()
 
-        self.conv1 = nn.Conv2d(1, 16, kernel_size=3, stride=2, padding=1)
-        self.conv2 = nn.Conv2d(16, 32, kernel_size=3, stride=2, padding=1)
-        self.conv3 = nn.Conv2d(32, 64, kernel_size=3, stride=2, padding=1)
-        self.conv4 = nn.Conv2d(64, 128, kernel_size=3, stride=2, padding=1)
+        self.rnn = nn.LSTM(995, 64, 5)
 
         self.act = nn.LeakyReLU()
 
     def forward(self, x):
-        x = x[:, None, :, :]
+        x = torch.transpose(x, 0, 1)
 
-        x = self.act(self.conv1(x))
-        x = self.act(self.conv2(x))
-        x = self.act(self.conv3(x))
-        x = self.act(self.conv4(x))
+        rnn_out, (h_n, c_n) = self.rnn(x)
 
-        return x
+        h_n = torch.transpose(h_n, 0, 1)
+        h_n = h_n.reshape(-1, self.hidden_sz * self.layers_num)
+        return h_n
 
 
 class BottleneckVariational(torch.nn.Module):
-    def __init__(self, hidden_sz):
+    def __init__(self, inp_sz, hidden_sz):
         super().__init__()
 
-        self.lin_mu = torch.nn.Linear(512, hidden_sz)
-        self.lin_log_var = torch.nn.Linear(512, hidden_sz)
+        self.lin_mu = torch.nn.Linear(inp_sz, hidden_sz)
+        self.lin_log_var = torch.nn.Linear(inp_sz, hidden_sz)
 
     def forward(self, x, use_noise: int):
-        x = x.reshape(-1, 512)
+        # x = x.reshape(-1, 512)
 
         mu = self.lin_mu(x)  # bs x latent_size
         log_var = self.lin_log_var(x)  # bs x latent_size
@@ -50,6 +49,8 @@ class BottleneckVariational(torch.nn.Module):
 
 
 class Decoder(torch.nn.Module):
+
+    max_len = 500
     def __init__(self, hidden_sz):
         super().__init__()
         self.deconv1 = nn.ConvTranspose2d(128, 64, kernel_size=3, stride=2, padding=1, output_padding=1)
@@ -80,7 +81,8 @@ class VariationalAutoEncoder(torch.nn.Module):
         super().__init__()
 
         self.encoder = Encoder()
-        self.bottleneck = BottleneckVariational(hidden_sz)
+        self.bottleneck = BottleneckVariational(self.encoder.hidden_sz * self.encoder.layers_num,
+                                                hidden_sz)
         self.decoder = Decoder(hidden_sz)
 
     def forward(self, x, use_noise):
@@ -110,6 +112,3 @@ class LossVAE(nn.Module):
         kl = -0.5 * kl.sum(-1)
         kl = kl.mean()
         return kl
-
-
-
