@@ -34,6 +34,15 @@ def train_cgan(dataset):
     return model
 
 
+def train_vae(dataset):
+    x, y = dataset
+    model = CGAN_Model(hidden_sz=x.shape[1:])
+    model.fit(x, y)
+    model.plot_loss()
+    model.save_weights()
+    return model
+
+
 def main():
     # Example
     tokenizer, dataset = parse(bpe_params=BPE)

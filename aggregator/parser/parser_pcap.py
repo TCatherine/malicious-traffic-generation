@@ -50,6 +50,7 @@ def get_strings(dataset: list[Any], tokenizer: Tokenizer) -> list:
         strings.append(data)
     return strings
 
+
 def run(
         types: list[str],
         number: int,
@@ -66,6 +67,7 @@ def run(
         data = parser.data()
         samples.extend(random.choices(data, k=type_number))
     return samples
+
 
 def parse(bpe_params: dict) -> (Tokenizer, list):
     xss_parser = Parser(xss_url)
