@@ -5,8 +5,7 @@ import torch
 from plotly import express as px
 from tqdm import tqdm
 
-# from .locals import *
-from nets import VariationalAutoEncoder, LossVAE
+from aggregator.models.basic_vae_gan.nets import VariationalAutoEncoder, LossVAE
 
 
 class VAE_Model:
