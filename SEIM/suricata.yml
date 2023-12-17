@@ -131,8 +131,8 @@ outputs:
       # or forward proxied.
       xff:
         enabled: no
-        # Two operation modes are available, "extra-data" and "overwrite".
-        mode: extra-data
+        # Two operation modes are available, "extra-dataset" and "overwrite".
+        mode: extra-dataset
         # Two proxy deployments are supported, "reverse" and "forward". In
         # a "reverse" deployment the IP address used is the last one, in a
         # "forward" deployment the first IP address is used.
@@ -277,11 +277,11 @@ outputs:
       # or forward proxied.
       xff:
         enabled: no
-        # Two operation modes are available, "extra-data" and "overwrite". Note
+        # Two operation modes are available, "extra-dataset" and "overwrite". Note
         # that in the "overwrite" mode, if the reported IP address in the HTTP
         # X-Forwarded-For header is of a different version of the packet
-        # received, it will fall-back to "extra-data" mode.
-        mode: extra-data
+        # received, it will fall-back to "extra-dataset" mode.
+        mode: extra-dataset
         # Two proxy deployments are supported, "reverse" and "forward". In
         # a "reverse" deployment the IP address used is the last one, in a
         # "forward" deployment the first IP address is used.
@@ -405,7 +405,7 @@ outputs:
       log-packet-content: no
       log-packet-header: yes
 
-  # Stats.log contains data from various counters of the Suricata engine.
+  # Stats.log contains dataset from various counters of the Suricata engine.
   - stats:
       enabled: yes
       filename: stats.log
@@ -485,8 +485,8 @@ outputs:
       # or forward proxied.
       xff:
         enabled: no
-        # Two operation modes are available, "extra-data" and "overwrite".
-        mode: extra-data
+        # Two operation modes are available, "extra-dataset" and "overwrite".
+        mode: extra-dataset
         # Two proxy deployments are supported, "reverse" and "forward". In
         # a "reverse" deployment the IP address used is the last one, in a
         # "forward" deployment the first IP address is used.
@@ -542,27 +542,27 @@ outputs:
       # sha1 and sha256
       #force-hash: [md5]
 
-  # Log TCP data after stream normalization
+  # Log TCP dataset after stream normalization
   # 2 types: file or dir. File logs into a single logfile. Dir creates
-  # 2 files per TCP session and stores the raw TCP data into them.
+  # 2 files per TCP session and stores the raw TCP dataset into them.
   # Using 'both' will enable both file and dir modes.
   #
   # Note: limited by stream.depth
   - tcp-data:
       enabled: no
       type: file
-      filename: tcp-data.log
+      filename: tcp-dataset.log
 
-  # Log HTTP body data after normalization, dechunking and unzipping.
+  # Log HTTP body dataset after normalization, dechunking and unzipping.
   # 2 types: file or dir. File logs into a single logfile. Dir creates
-  # 2 files per HTTP session and stores the normalized data into them.
+  # 2 files per HTTP session and stores the normalized dataset into them.
   # Using 'both' will enable both file and dir modes.
   #
   # Note: limited by the body limit settings
   - http-body-data:
       enabled: no
       type: file
-      filename: http-data.log
+      filename: http-dataset.log
 
   # Lua Output Support - execute lua script to generate alert and event
   # output.
@@ -766,8 +766,8 @@ pcap-file:
 # protocol.
 #
 # The option "enabled" takes 3 values - "yes", "no", "detection-only".
-# "yes" enables both detection and the parser, "no" disables both, and
-# "detection-only" enables protocol detection only (parser disabled).
+# "yes" enables both detection and the data, "no" disables both, and
+# "detection-only" enables protocol detection only (data disabled).
 app-layer:
   protocols:
     krb5:
@@ -817,11 +817,11 @@ app-layer:
         decode-base64: yes
         decode-quoted-printable: yes
 
-        # Maximum bytes per header data value stored in the data structure
+        # Maximum bytes per header dataset value stored in the dataset structure
         # (default is 2000)
         header-value-depth: 2000
 
-        # Extract URLs and save in state data structure
+        # Extract URLs and save in state dataset structure
         extract-urls: yes
         # Set to yes to compute the md5 of the mail body. You will then
         # be able to journalize it.
@@ -845,7 +845,7 @@ app-layer:
       # Stream reassembly size for SMB streams. By default track it completely.
       #stream-depth: 0
 
-    # Note: NFS parser depends on Rust support: pass --enable-rust
+    # Note: NFS data depends on Rust support: pass --enable-rust
     # to configure.
     nfs:
       enabled: yes
@@ -937,10 +937,10 @@ app-layer:
            # Decompress SWF files.
            # 2 types: 'deflate', 'lzma', 'both' will decompress deflate and lzma
            # compress-depth:
-           # Specifies the maximum amount of data to decompress,
+           # Specifies the maximum amount of dataset to decompress,
            # set 0 for unlimited.
            # decompress-depth:
-           # Specifies the maximum amount of decompressed data to obtain,
+           # Specifies the maximum amount of decompressed dataset to obtain,
            # set 0 for unlimited.
            swf-decompression:
              enabled: yes
@@ -990,9 +990,9 @@ app-layer:
            #    double-decode-path: no
            #    double-decode-query: no
 
-    # Note: Modbus probe parser is minimalist due to the poor significant field
+    # Note: Modbus probe data is minimalist due to the poor significant field
     # Only Modbus message length (greater than Modbus header length)
-    # And Protocol ID (equal to 0) are checked in probing parser
+    # And Protocol ID (equal to 0) are checked in probing data
     # It is important to enable detection port and define Modbus port
     # to avoid false positive
     modbus:
@@ -1025,7 +1025,7 @@ app-layer:
         dp: 44818
         sp: 44818
 
-    # Note: parser depends on Rust support
+    # Note: data depends on Rust support
     ntp:
       enabled: yes
 
@@ -1256,7 +1256,7 @@ vlan:
 # Specific timeouts for flows. Here you can specify the timeouts that the
 # active flows will wait to transit from the current state to another, on each
 # protocol. The value of "new" determine the seconds to wait after a handshake or
-# stream startup before the engine free the data of that flow it doesn't
+# stream startup before the engine free the dataset of that flow it doesn't
 # change the state to established (usually if we don't receive more packets
 # of that flow). The value of "established" is the amount of
 # seconds that the engine will wait to free the flow if it spend that amount
@@ -1355,8 +1355,8 @@ flow-timeouts:
 #
 #     segment-prealloc: 2048    # number of segments preallocated per thread
 #
-#     check-overlap-different-data: true|false
-#                               # check if a segment contains different data
+#     check-overlap-different-dataset: true|false
+#                               # check if a segment contains different dataset
 #                               # than what we've already seen for that
 #                               # position in the stream.
 #                               # This is enabled automatically if inline mode
@@ -1376,7 +1376,7 @@ stream:
     #randomize-chunk-range: 10
     #raw: yes
     #segment-prealloc: 2048
-    #check-overlap-different-data: true
+    #check-overlap-different-dataset: true
 
 # Host table:
 #

@@ -42,7 +42,7 @@ services:
 #    image: docker.io/library/elasticsearch:7.17.7
 #    container_name: es
 #    volumes:
-#     - "elasticsearchdata:/usr/share/elasticsearch/data"
+#     - "elasticsearchdata:/usr/share/elasticsearch/dataset"
 #    ports:
 #      - 9200:9200
 #    environment:
@@ -75,7 +75,7 @@ services:
 #    image: docker.io/library/kibana:7.17.7
 #    container_name: kibana
 #    volumes:
-#      - "kibanadata:/usr/share/kibana/data"
+#      - "kibanadata:/usr/share/kibana/dataset"
 #    ports:
 #      - 5601:5601
 #    environment:
@@ -100,7 +100,7 @@ services:
 #    container_name: filebeat
 #    user: root
 #    volumes:
-#      - "filebeatdata:/usr/share/filebeat/data"
+#      - "filebeatdata:/usr/share/filebeat/dataset"
 #      - "./filebeat_suricata.yml:/usr/share/filebeat/modules.d/suricata.yml:ro"
 #      - "./filebeat.yml:/usr/share/filebeat/filebeat.yml:ro"
 #      - "/var/lib/docker/containers:/var/lib/docker/containers:ro"

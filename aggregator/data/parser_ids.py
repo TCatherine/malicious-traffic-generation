@@ -22,7 +22,7 @@ def choose_color(l):
 def get_features_data_explain(data, label):
     pca = PCA(n_components=3)
 
-    # Fit and transform data
+    # Fit and transform dataset
     pca.fit_transform(data)
 
     # Bar plot of explained_variance
@@ -67,7 +67,7 @@ def show_pca(data, label):
     plt.show()
 
 
-cic_ids2017_dataset = 'data/Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv'
+cic_ids2017_dataset = 'dataset/Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv'
 
 
 def processing(data, label):
@@ -139,6 +139,6 @@ def parse(
         drop_last=True)
 
     if is_cuda:
-        train.to(torch.device("cuda:0"))  # put data into GPU entirely
+        train.to(torch.device("cuda:0"))  # put dataset into GPU entirely
         train_target.to(torch.device("cuda:0"))
     return res

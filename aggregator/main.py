@@ -1,6 +1,6 @@
-from parser import run as ref_run
+from data import run as ref_run
 
-from parser import parse, get_strings, load_dict
+from data import parse, get_strings, load_dict
 from parameters import *
 from models.basic_gan.cgan_model import CGAN_Model
 from models.basic_vae.vae import VAE_Model
@@ -60,7 +60,6 @@ def main():
     res = model.generate(data_shape).tolist()
     url = get_strings(res, tokenizer)
     print(run(['xss'], 10, False, False))
-
 
 if __name__ == "__main__":
     main()

@@ -1,6 +1,6 @@
 from pathlib import Path
 
-dataset_folder = Path(__file__).parent.parent / 'data'
+dataset_folder = Path(__file__).parent / 'dataset'
 
 xss = {
     'path': dataset_folder / 'xss',

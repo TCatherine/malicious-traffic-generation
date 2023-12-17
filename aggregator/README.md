@@ -3,5 +3,5 @@
 ## Byte pair encoding
 
 ```bash
-pip install -r parser/bpe/requirements.txt
+pip install -r data/bpe/requirements.txt
 ```

@@ -2,6 +2,7 @@ from torch.autograd import Variable
 import numpy as np
 import torch
 
+
 def compute_gradient_penalty(
         D,
         real_samples,
@@ -61,7 +62,7 @@ def train(
             # Generate a batch of images
             fake_data = G(z)
 
-            # Real and fake data
+            # Real and fake dataset
             real_validity = D(real_data)
             fake_validity = D(fake_data)
             # Gradient penalty
@@ -102,6 +103,6 @@ def train(
             step+=1
 
             # if batches_done % opt.sample_interval == 0:
-            #     save_image(fake_imgs.data[:25], "images/%d.png" % batches_done, nrow=5, normalize=True)
+            #     save_image(fake_imgs.dataset[:25], "images/%d.png" % batches_done, nrow=5, normalize=True)
 
             # batches_done += opt.n_critic
