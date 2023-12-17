@@ -52,12 +52,9 @@ class Decoder(torch.nn.Module):
 
     def __init__(self, hidden_sz):
         super().__init__()
-        self.deconv1 = nn.ConvTranspose2d(128, 64, kernel_size=3, stride=2, padding=1, output_padding=1)
-        self.deconv2 = nn.ConvTranspose2d(64, 32, kernel_size=3, stride=2, padding=1, output_padding=0)
-        self.deconv3 = nn.ConvTranspose2d(32, 16, kernel_size=3, stride=2, padding=1, output_padding=1)
-        self.deconv4 = nn.ConvTranspose2d(16, 1, kernel_size=3, stride=2, padding=1, output_padding=1)
 
-        self.fc1 = nn.Linear(hidden_sz, 512)
+        self.fc1 = nn.Linear(64, 320)
+        self.rnn = nn.LSTM(995, 64, 5)
 
         self.relu = nn.LeakyReLU()
 
@@ -87,7 +84,27 @@ class VariationalAutoEncoder(torch.nn.Module):
     def forward(self, x, use_noise):
         x = self.encoder(x)
         z, mu, log_var = self.bottleneck(x, use_noise)
-        recon = self.decoder(z)
+
+        recon =
+        for t in range(1, trg_len):
+            # insert input token embedding, previous hidden state and all encoder hidden states
+            # receive output tensor (predictions) and new hidden state
+            output, hidden = self.decoder(input, hidden, encoder_outputs)
+
+            # place predictions in a tensor holding predictions for each token
+            outputs[t] = output
+
+            # decide if we are going to use teacher forcing or not
+            teacher_force = random.random() < teacher_forcing_ratio
+
+            # get the highest predicted token from our predictions
+            top1 = output.argmax(1)
+
+            # if teacher forcing, use actual next token as next input
+            # if not, use predicted token
+            input = trg[t] if teacher_force else top1
+
+
         return recon, mu, log_var
 
 

@@ -38,6 +38,8 @@ def train_cgan(dataset):
 
 
 def train_vae(dataset):
+    # train_data, test_data = split(data)
+
     dataloader = dataset
 
     hidden_size = 64
