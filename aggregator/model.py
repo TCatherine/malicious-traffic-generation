@@ -62,7 +62,6 @@ from tqdm import tqdm
 from plotly import express as px
 import os
 
-
 class Encoder(torch.nn.Module):
     def __init__(self):
         super().__init__()

@@ -202,9 +202,13 @@ class Tokenizer:
         return vocab_stoi, vocab_itos
 
     @property
-    def tokens_dict(self):
-        a = 1
+    def tokens_dict(self)-> dict:
         return self.vocab_stoi
+
+    @property
+    def dict_size(self) -> int:
+        return len(self.vocab_stoi.keys())
+
     def tokenize(self, text: str) -> List[str]:
         tokens = []
         token = None
@@ -278,7 +282,10 @@ class Tokenizer:
         return text
 
     def encode(self, text: str) -> List[int]:
-        return [self.vocab_stoi[s] for s in self.tokenize(text)]
+        return [self.vocab_stoi[s] if s in self.vocab_stoi.keys()
+                else self.vocab_stoi[self.meta_tokens['unk']]
+                for s in self.tokenize(text)
+                ]
 
     def decode(self, encodings: List[int]) -> str:
         return self.detokenize([self.vocab_itos[i] for i in encodings])
