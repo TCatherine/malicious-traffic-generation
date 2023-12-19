@@ -9,6 +9,7 @@ from .nets import VariationalAutoEncoder, LossVAE
 from data import collate_fn, DatasetURI
 import numpy as np
 
+
 class VAE_Model:
     device = torch.device('cpu')
     # device = torch.device('cuda')
@@ -36,7 +37,7 @@ class VAE_Model:
                                       collate_fn=collate_fn,
                                       drop_last=True
                                       )
-        for epoch in tqdm(range(3)):
+        for epoch in tqdm(range(5)):
             self.loss_track.append([])
             # train
             for train_batch in tqdm(train_dataloader):
@@ -48,7 +49,7 @@ class VAE_Model:
                                                      num_classes=train_dataset.tokenizer.dict_size)
                 target = torch.tensor(target, dtype=torch.float32)
                 rec_loss, kl_loss = self.loss(target, rec, mu, log_var)
-                total_loss = rec_loss+ kl_loss
+                total_loss = rec_loss + kl_loss
                 total_loss.backward()
                 self.optimizer.step()
 
@@ -62,7 +63,7 @@ class VAE_Model:
             # save losses
             # self.loss_track.append({'train': float(train_l), 'test': float(test_l)})
 
-        l = np.array(self.loss_track).mean(axis=1)
+        self.loss_track = np.array(self.loss_track).mean(axis=1)
         self.l = pd.DataFrame(self.loss_track)
 
     def predict(self, x):
