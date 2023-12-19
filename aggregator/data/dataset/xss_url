@@ -1671,7 +1671,6 @@ innerHTML=location.hash>#<script>alert(1)</script>
 <blockquote oncopy="alert(1)" contenteditable>test</blockquote>
 <blockquote oncut="alert(1)" contenteditable>test</blockquote>
 <blockquote ondblclick="alert(1)">test</blockquote>
-<blockquote onfocusout=alert(1) tabindex=1 id=x></blockquote><input autofocus>
 <blockquote onkeydown="alert(1)" contenteditable>test</blockquote>
 <blockquote onkeypress="alert(1)" contenteditable>test</blockquote>
 <blockquote onkeyup="alert(1)" contenteditable>test</blockquote>

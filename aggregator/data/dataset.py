@@ -1,9 +1,8 @@
 import torch
-import re
-from typing import List
 
-from .locals import *
-from .tokenize import Tokenizer
+from torch.nn.utils.rnn import pad_sequence
+from typing import List
+from .tokenizer import Tokenizer
 
 
 class DatasetURI(torch.utils.data.Dataset):
@@ -22,6 +21,8 @@ class DatasetURI(torch.utils.data.Dataset):
 
 
 def collate_fn(data: List[List[int]]) -> torch.Tensor:
-    res = torch.as_tensor(data)
+    dataset = [torch.as_tensor(d) for d in data]
+    res = pad_sequence(dataset, batch_first=True)
+
     # res = torch.nn.functional.one_hot(res, num_classes=num_classes)
     return res

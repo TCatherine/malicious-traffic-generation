@@ -1,6 +1,6 @@
 from pathlib import Path
 
-dict_path = Path(__file__).parent / 'data' / 'penguin_of_doom.vocab'
+dict_path = Path('data') / 'dict.model'
 
 EPOCHS = 10000
 BATCH_SIZE = 48
@@ -15,7 +15,5 @@ LOAD_MODEL = False
 BPE = {
     "vocab_size": 1000,
     "fixed_length": 500,
-    "pairable_chars": "a-zA-Z0-9",
-    "dict_path": dict_path,
-    "force_update": False
+    "model_path": dict_path,
 }

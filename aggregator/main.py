@@ -1,6 +1,6 @@
 from data import run as ref_run
 
-from data import parse, get_strings, load_dict, DatasetURI, load_bpe
+from data import parse, DatasetURI, Tokenizer
 from parameters import *
 from models.basic_gan.cgan_model import CGAN_Model
 from models.basic_vae.vae import VAE_Model
@@ -52,9 +52,9 @@ def train_vae(data, tokenizer):
 
 
 def main():
-    # Example
     data = parse()
-    tokenizer = load_bpe(BPE)
+    tokenizer = Tokenizer(BPE)
+
     model = train_vae(data, tokenizer)
 
     data_shape = dataset[0].shape

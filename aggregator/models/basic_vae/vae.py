@@ -10,8 +10,8 @@ from data import collate_fn, DatasetURI
 import numpy as np
 
 class VAE_Model:
-    # device = torch.device('cpu')
-    device = torch.device('cuda')
+    device = torch.device('cpu')
+    # device = torch.device('cuda')
 
     file_path = os.path.dirname(__file__)
 
@@ -39,7 +39,7 @@ class VAE_Model:
         for epoch in tqdm(range(3)):
             self.loss_track.append([])
             # train
-            for train_batch in train_dataloader:
+            for train_batch in tqdm(train_dataloader):
                 train_batch = train_batch.to(self.device)
 
                 self.optimizer.zero_grad()

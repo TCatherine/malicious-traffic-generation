@@ -14,7 +14,7 @@ class Encoder(torch.nn.Module):
     def __init__(self, dict_size):
         super().__init__()
 
-        self.rnn = nn.LSTM(995, 64, 5)
+        self.rnn = nn.LSTM(dict_size, 64, 5)
 
         self.act = nn.LeakyReLU()
         self.dict_size = dict_size
@@ -50,11 +50,11 @@ class BottleneckVariational(torch.nn.Module):
 
 class Decoder(torch.nn.Module):
 
-    def __init__(self, hidden_sz):
+    def __init__(self, hidden_sz, dict_size):
         super().__init__()
 
         self.fc1 = nn.Linear(64, 320)
-        self.rnn = nn.LSTM(995, 64, 5)
+        self.rnn = nn.LSTM(dict_size, 64, 5)
 
         self.relu = nn.LeakyReLU()
 
@@ -75,7 +75,7 @@ class VariationalAutoEncoder(torch.nn.Module):
                                                 hidden_sz)
 
         self.bottleneck2decoder = nn.Linear(64, 320)
-        self.decoder = Decoder(hidden_sz)
+        self.decoder = Decoder(hidden_sz, dict_size)
 
     def forward(self, x: torch.Tensor, use_noise):
         x = torch.nn.functional.one_hot(x, num_classes=self.dict_size)
