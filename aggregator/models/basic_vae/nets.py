@@ -53,14 +53,17 @@ class Decoder(torch.nn.Module):
     def __init__(self, hidden_sz, dict_size):
         super().__init__()
 
-        self.fc1 = nn.Linear(64, 320)
-        self.rnn = nn.LSTM(dict_size, 64, 5)
+        self.rnn = nn.LSTM(dict_size, hidden_sz, 5)
 
-        self.relu = nn.LeakyReLU()
+        self.to_dict_size = nn.Linear(hidden_sz, dict_size)
 
     def forward(self, x, h_n, c_n):
         output, (h_n, c_n) = self.rnn(x, (h_n, c_n))
-        return x, h_n, c_n
+
+        out_dict = output[-1]
+
+        out_dict = self.to_dict_size(out_dict)
+        return out_dict[None, :, :], h_n, c_n
 
 
 class VariationalAutoEncoder(torch.nn.Module):
@@ -75,6 +78,8 @@ class VariationalAutoEncoder(torch.nn.Module):
                                                 hidden_sz)
 
         self.bottleneck2decoder = nn.Linear(64, 320)
+        self.act = nn.LeakyReLU()
+
         self.decoder = Decoder(hidden_sz, dict_size)
 
     def forward(self, x: torch.Tensor, use_noise):
@@ -87,7 +92,7 @@ class VariationalAutoEncoder(torch.nn.Module):
         encoded_x = self.encoder(x)
         z, mu, log_var = self.bottleneck(encoded_x, use_noise)
 
-        bottleneck_input = self.bottleneck2decoder(z)
+        bottleneck_input = self.act(self.bottleneck2decoder(z))
         bottleneck_input = bottleneck_input.reshape((-1, 5, 64))
         bottleneck_input = torch.transpose(bottleneck_input, 0, 1)
         input = x[0:1, :]
@@ -102,6 +107,8 @@ class VariationalAutoEncoder(torch.nn.Module):
 
             # place predictions in a tensor holding predictions for each token
             recon[t] = output
+
+            input = output
 
         recon = torch.transpose(recon, 0, 1)
         return recon, mu, log_var
