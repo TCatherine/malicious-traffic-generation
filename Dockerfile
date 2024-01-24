@@ -11,5 +11,6 @@ RUN pip install --upgrade pip && \
 
 COPY aggregator ./aggregator
 COPY generator ./generator
+COPY analyzer ./analyzer
 COPY *.py .
 

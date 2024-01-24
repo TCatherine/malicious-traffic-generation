@@ -1,3 +1,7 @@
+import seaborn as sns
+import pandas
+import numpy as np
+
 from torchtext.data.functional import generate_sp_model, load_sp_model, sentencepiece_tokenizer, sentencepiece_numericalizer
 from pathlib import Path
 from typing import List
@@ -24,8 +28,8 @@ class Tokenizer:
         return vocab
 
 
-    def __load_model(self, data: Path):
-        if not self.model_path.is_file():
+    def __load_model(self, data: Path, force_update = False):
+        if not self.model_path.is_file() or force_update:
             model_prefix = str(self.model_path).split('.model')[0]
             generate_sp_model(data, vocab_size=self.vocab_size, model_type='bpe', model_prefix=model_prefix)
 
@@ -51,3 +55,28 @@ class Tokenizer:
     def decode(self, encodings: List[int]) -> str:
         data = [self.vocab[i] for i in encodings]
         return data
+
+    def entropy(self, data: List[str]):
+        tok = []
+        for d in data:
+            tok.extend(self.tokenize(d))
+
+        char = list(' '.join(data))
+        _, cnt = np.unique(tok, return_counts=True)
+        p = cnt / np.sum(cnt)
+
+        H = -np.sum(p * np.log2(p))
+        return H
+
+    def metrics(self, data: List[str]):
+        # Распределение длин
+        print(self.entropy(data))
+        # lens = pandas.DataFrame({'xss': [len(d) for d in data]})
+        # lens.to_excel("line.xlsx")
+        t_lens = pandas.DataFrame({'xss': [len(self.tokenize(d)) for d in data]})
+        t_lens.to_excel("token.xlsx")
+        res = lens['xss'].value_counts()
+        print(res.head(10))
+        sns.displot(lens).set_titles('Распределение длин')
+        sns.show()
+        a = 1

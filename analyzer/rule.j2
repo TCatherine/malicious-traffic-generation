@@ -1,0 +1,8 @@
+alert http $EXTERNAL_NET any -> $HTTP_SERVERS any
+ ( msg: "EFFICIENCY ENHANCEMENT";
+ flow: to_server,established;
+ content: "{{ content }}"; nocase;
+ sid: {{ sid }};
+ rev: {{ rev }};
+ metadata: created_at {{ data }}; )
+

@@ -31,6 +31,9 @@ services:
 #      suricata:
 #        condition: service_started
     entrypoint: "python3 main.py"
+    volumes:
+      - ./suricata_logs:/suricata
+      - ./results:/out
     command:
     - "--url"
     - "http://suricata:80/"

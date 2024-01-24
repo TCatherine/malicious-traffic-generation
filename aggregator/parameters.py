@@ -13,7 +13,7 @@ GRADIENT_PENALTY = 10
 LOAD_MODEL = False
 
 BPE = {
-    "vocab_size": 1000,
+    "vocab_size": 500,
     "fixed_length": 500,
     "model_path": dict_path,
 }

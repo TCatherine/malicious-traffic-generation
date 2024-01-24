@@ -6,4 +6,5 @@ matplotlib
 scikit-learn
 requests
 plotly
-nltk
+torchtext
+openpyxl

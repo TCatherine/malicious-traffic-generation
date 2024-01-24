@@ -1,0 +1,33 @@
+alert http $EXTERNAL_NET any -> $HTTP_SERVERS any ( msg: "EFFICIENCY ENHANCEMENT"; flow: to_server,established;
+content: "boafrm/=%3E%3Cscript%3Eadmin/mediaAdmin.php?id=%22%3E%3Ciframe%20src=a%20onload=alert%28%22VL%22%29%2
+0%3C"; nocase; sid: 83092676; rev: 1; metadata: created_at 2024_01_08; )
+
+alert http $EXTERNAL_NET any -> $HTTP_SERVERS any
+( msg: "EFFICIENCY ENHANCEMENT";
+ flow: to_server,established;
+ content: "search.php?test=query$=document,$=$.URL,\
+ $$=unescape,$$$=eval,$$$($$($))%0";
+ nocase;
+ sid: 57153621;
+ rev: 1;
+ metadata: created_at 2024_01_08; )
+
+alert http $EXTERNAL_NET any -> $HTTP_SERVERS any ( msg: "EFFICIENCY ENHANCEMENT"; flow: to_server,established;
+ content: "index.php?test=queryevil=/ev/.source+/al/.source,changeProto=/Strin/.source+/g.prototyp/.source+/e.s
+ s=/.source+/Strin/.source+/g.prototyp/.source+/e.substrin/.source+/g/.source,hshCod=/documen/.source+/t.locati
+ o/.source+/n.has/.source+/h/.source;7%5Bevil%5D(changeProto);hsh=7%5Bevil%5D(hshCod),cod=hsh.ss(1);7%5Bevil%5D
+ (cod)%0"; nocase; sid: 46902009; rev: 1; metadata: created_at 2024_01_08; )
+
+alert http $EXTERNAL_NET any -> $HTTP_SERVERS any
+ ( msg: "EFFICIENCY ENHANCEMENT";
+ flow: to_server,established;
+ content: "index.html?test=query%3CSTYLE%20TYPE=%22text/javascript%22%3Ealert('XSS');%3C/STYLE%3E%0";
+ nocase; sid: 72423709; rev: 1; metadata: created_at 2024_01_08; )
+ 
+alert http $EXTERNAL_NET any -> $HTTP_SERVERS any ( msg: "EFFICIENCY ENHANCEMENT"; flow: to_server,established; content: "search.php?test=queryA=alert;A(1)%0"; nocase; sid: 53744201; rev: 1; metadata: created_at 2024_01_08; )
+alert http $EXTERNAL_NET any -> $HTTP_SERVERS any ( msg: "EFFICIENCY ENHANCEMENT"; flow: to_server,established; content: "boafrm/=%3E%3Cscript%3E"; nocase; sid: 40697193; rev: 1; metadata: created_at 2024_01_08; )
+alert http $EXTERNAL_NET any -> $HTTP_SERVERS any ( msg: "EFFICIENCY ENHANCEMENT"; flow: to_server,established; content: "admin/mediaAdmin.php?id=%22%3E%3Ciframe%20src=a%20onload=alert%28%22VL%22%29%20%3C"; nocase; sid: 49288183; rev: 1; metadata: created_at 2024_01_08; )
+alert http $EXTERNAL_NET any -> $HTTP_SERVERS any ( msg: "EFFICIENCY ENHANCEMENT"; flow: to_server,established; content: "search.php?test=query$=document,$=$.URL,$$=unescape,$$$=eval,$$$($$($))%0"; nocase; sid: 50824966; rev: 1; metadata: created_at 2024_01_08; )
+alert http $EXTERNAL_NET any -> $HTTP_SERVERS any ( msg: "EFFICIENCY ENHANCEMENT"; flow: to_server,established; content: "index.php?test=queryevil=/ev/.source+/al/.source,changeProto=/Strin/.source+/g.prototyp/.source+/e.ss=/.source+/Strin/.source+/g.prototyp/.source+/e.substrin/.source+/g/.source,hshCod=/documen/.source+/t.locatio/.source+/n.has/.source+/h/.source;7%5Bevil%5D(changeProto);hsh=7%5Bevil%5D(hshCod),cod=hsh.ss(1);7%5Bevil%5D(cod)%0"; nocase; sid: 82568934; rev: 1; metadata: created_at 2024_01_08; )
+alert http $EXTERNAL_NET any -> $HTTP_SERVERS any ( msg: "EFFICIENCY ENHANCEMENT"; flow: to_server,established; content: "index.html?test=query%3CSTYLE%20TYPE=%22text/javascript%22%3Ealert('XSS');%3C/STYLE%3E%0"; nocase; sid: 46331201; rev: 1; metadata: created_at 2024_01_08; )
+alert http $EXTERNAL_NET any -> $HTTP_SERVERS any ( msg: "EFFICIENCY ENHANCEMENT"; flow: to_server,established; content: "search.php?test=queryA=alert;A(1)%0"; nocase; sid: 26384855; rev: 1; metadata: created_at 2024_01_08; )

@@ -1,15 +1,8 @@
-from typing import Any
-from sklearn.preprocessing import OneHotEncoder
-from torch.utils.data import DataLoader, TensorDataset
-from .locals import *
-from .tokenizer import Tokenizer
-from tqdm import tqdm
-from .dataset import DatasetURI
-
-import numpy as np
 import re
 import random
-import torch
+
+from typing import Any, List
+from .locals import *
 
 
 class Parser:
@@ -49,12 +42,7 @@ def run(
     return samples
 
 
-def parse() -> (Tokenizer, DataLoader):
-    xss_parser = Parser(xss_url)
-    # bpe = Tokenizer(bpe_params)
-    # print(bpe.tokenize(xss_parser.data()[0]))
-    # res = bpe.encode(xss_parser.data()[0])
-    # print(res)
-    # print(bpe.decode(res))
+def parse() -> List[str]:
+    xss_parser = Parser(xss_url_suricata)
 
     return xss_parser.data()

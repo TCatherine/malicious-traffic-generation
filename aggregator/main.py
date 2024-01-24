@@ -53,7 +53,8 @@ def train_vae(data, tokenizer):
 
 def main():
     data = parse()
-    tokenizer = Tokenizer(BPE)
+    tokenizer = Tokenizer(BPE, 'data/dataset/xss_url')
+    tokenizer.metrics(data)
 
     model = train_vae(data, tokenizer)
 
